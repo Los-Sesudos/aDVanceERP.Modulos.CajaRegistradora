@@ -51,4 +51,9 @@
     <Folder Include="Documentos\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\aDVanceERP-core\aDVanceERP.Core.Extension\aDVanceERP.Core.Extension.csproj" />
+    <ProjectReference Include="..\..\aDVanceERP-core\aDVanceERP.Core\aDVanceERP.Core.csproj" />
+  </ItemGroup>
+
 </Project>
