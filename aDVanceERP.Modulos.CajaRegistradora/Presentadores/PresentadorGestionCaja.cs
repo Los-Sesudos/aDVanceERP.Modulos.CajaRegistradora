@@ -9,6 +9,7 @@ using aDVanceERP.Core.Modelos.Modulos.Caja;
 using aDVanceERP.Core.Presentadores.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
 using aDVanceERP.Core.Repositorios.Modulos.Inventario;
+using aDVanceERP.Modulos.CajaRegistradora.Documentos;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 using aDVanceERP.Modulos.CajaRegistradora.Vistas;
 
@@ -16,6 +17,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
     internal class PresentadorGestionCaja : PresentadorVistaGestion<PresentadorTuplaTurno, IVistaGestionCaja, IVistaTuplaTurno, CajaTurno, RepoCajaTurno, FiltroBusquedaCajaTurno> {
         public PresentadorGestionCaja(IVistaGestionCaja vista) : base(vista) {
             vista.AbrirTurno += OnAbrirTurno;
+            vista.GenerarDocumentoResumenMovimientos += OnGenerarDocumentoResumenMovimientos;
             vista.CerrarTurno += OnCerrarTurno;
             vista.RegistrarMovimiento += OnRegistrarMovimiento;
             
@@ -54,6 +56,12 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
             AgregadorEventos.Publicar(new EventoMostrarVistaAperturaTurno() { 
                 IdAlmacen = Vista.IdAlmacenSeleccionado
             });
+        }
+
+        private void OnGenerarDocumentoResumenMovimientos(object? sender, DateTime fecha) {
+            var resumen = new DocCierreCaja(fecha);
+
+            resumen.GenerarDocumento(mostrar: true);
         }
 
         private void OnCerrarTurno(object? sender, EventArgs e) {

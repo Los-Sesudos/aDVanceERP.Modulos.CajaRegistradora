@@ -27,13 +27,15 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(VistaTuplaTurno));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(VistaTuplaTurno));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             layoutBase = new TableLayoutPanel();
             layoutVista = new TableLayoutPanel();
             btnAnularTurno = new Guna2Button();
@@ -46,28 +48,32 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldEfectivoDeclarado = new Label();
             fieldAlmacen = new Label();
             btnVerDetalleTurno = new Guna2Button();
+            separador1 = new Guna2Separator();
+            btnGenerarHojaConteoTurno = new Guna2Button();
             layoutBase.SuspendLayout();
             layoutVista.SuspendLayout();
             SuspendLayout();
             // 
             // layoutBase
             // 
-            layoutBase.BackColor = Color.Gainsboro;
+            layoutBase.BackColor = Color.White;
             layoutBase.ColumnCount = 1;
-            layoutBase.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            layoutBase.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            layoutBase.Controls.Add(separador1, 0, 1);
             layoutBase.Controls.Add(layoutVista, 0, 0);
             layoutBase.Dock = DockStyle.Fill;
             layoutBase.Location = new Point(0, 0);
             layoutBase.Name = "layoutBase";
-            layoutBase.RowCount = 1;
-            layoutBase.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            layoutBase.RowCount = 2;
+            layoutBase.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            layoutBase.RowStyles.Add(new RowStyle(SizeType.Absolute, 5F));
             layoutBase.Size = new Size(1241, 42);
             layoutBase.TabIndex = 1;
             // 
             // layoutVista
             // 
             layoutVista.BackColor = Color.White;
-            layoutVista.ColumnCount = 10;
+            layoutVista.ColumnCount = 11;
             layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 180F));
             layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
@@ -76,12 +82,11 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
             layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 110F));
             layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
-            layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-            layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-            layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            layoutVista.Controls.Add(btnAnularTurno, 9, 0);
+            layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 37F));
+            layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 37F));
+            layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 37F));
+            layoutVista.Controls.Add(btnGenerarHojaConteoTurno, 8, 0);
+            layoutVista.Controls.Add(btnAnularTurno, 10, 0);
             layoutVista.Controls.Add(fieldEstado, 7, 0);
             layoutVista.Controls.Add(fieldFechaApertura, 3, 0);
             layoutVista.Controls.Add(fieldUsuarioApertura, 2, 0);
@@ -90,14 +95,14 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             layoutVista.Controls.Add(fieldEfectivoCalculado, 4, 0);
             layoutVista.Controls.Add(fieldEfectivoDeclarado, 5, 0);
             layoutVista.Controls.Add(fieldAlmacen, 1, 0);
-            layoutVista.Controls.Add(btnVerDetalleTurno, 8, 0);
+            layoutVista.Controls.Add(btnVerDetalleTurno, 9, 0);
             layoutVista.Dock = DockStyle.Fill;
             layoutVista.Location = new Point(0, 0);
             layoutVista.Margin = new Padding(0, 0, 0, 1);
             layoutVista.Name = "layoutVista";
             layoutVista.RowCount = 1;
             layoutVista.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            layoutVista.Size = new Size(1241, 41);
+            layoutVista.Size = new Size(1241, 36);
             layoutVista.TabIndex = 19;
             // 
             // btnAnularTurno
@@ -106,10 +111,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             btnAnularTurno.BorderColor = Color.Gainsboro;
             btnAnularTurno.BorderRadius = 16;
             btnAnularTurno.BorderThickness = 1;
-            btnAnularTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage");
-            btnAnularTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image");
+            btnAnularTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage1");
+            btnAnularTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image1");
             btnAnularTurno.CustomImages.ImageAlign = HorizontalAlignment.Center;
-            btnAnularTurno.CustomizableEdges = customizableEdges1;
+            btnAnularTurno.CustomizableEdges = customizableEdges3;
             btnAnularTurno.Dock = DockStyle.Fill;
             btnAnularTurno.FillColor = Color.White;
             btnAnularTurno.Font = new Font("Segoe UI", 9.75F);
@@ -117,19 +122,19 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             btnAnularTurno.HoverState.BorderColor = Color.PeachPuff;
             btnAnularTurno.HoverState.FillColor = Color.PeachPuff;
             btnAnularTurno.HoverState.ForeColor = Color.White;
-            btnAnularTurno.Location = new Point(1203, 3);
+            btnAnularTurno.Location = new Point(1207, 3);
             btnAnularTurno.Name = "btnAnularTurno";
-            btnAnularTurno.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnAnularTurno.Size = new Size(35, 35);
+            btnAnularTurno.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnAnularTurno.Size = new Size(31, 30);
             btnAnularTurno.TabIndex = 41;
             // 
             // fieldEstado
             // 
             fieldEstado.AutoRoundedCorners = true;
             fieldEstado.BorderColor = Color.Gainsboro;
-            fieldEstado.BorderRadius = 11;
+            fieldEstado.BorderRadius = 9;
             fieldEstado.BorderThickness = 1;
-            fieldEstado.CustomizableEdges = customizableEdges3;
+            fieldEstado.CustomizableEdges = customizableEdges5;
             fieldEstado.DisabledState.BorderColor = Color.Gainsboro;
             fieldEstado.DisabledState.CustomBorderColor = Color.Gainsboro;
             fieldEstado.DisabledState.FillColor = Color.Gainsboro;
@@ -142,11 +147,11 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldEstado.HoverState.BorderColor = Color.PeachPuff;
             fieldEstado.HoverState.FillColor = Color.PeachPuff;
             fieldEstado.HoverState.ForeColor = Color.Black;
-            fieldEstado.Location = new Point(1038, 8);
+            fieldEstado.Location = new Point(1008, 8);
             fieldEstado.Margin = new Padding(8);
             fieldEstado.Name = "fieldEstado";
-            fieldEstado.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            fieldEstado.Size = new Size(114, 25);
+            fieldEstado.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            fieldEstado.Size = new Size(114, 20);
             fieldEstado.TabIndex = 40;
             fieldEstado.Text = "● estado";
             fieldEstado.TextOffset = new Point(0, -1);
@@ -157,10 +162,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldFechaApertura.Font = new Font("Segoe UI", 11.25F);
             fieldFechaApertura.ForeColor = Color.DimGray;
             fieldFechaApertura.ImeMode = ImeMode.NoControl;
-            fieldFechaApertura.Location = new Point(505, 1);
+            fieldFechaApertura.Location = new Point(475, 1);
             fieldFechaApertura.Margin = new Padding(5, 1, 1, 1);
             fieldFechaApertura.Name = "fieldFechaApertura";
-            fieldFechaApertura.Size = new Size(154, 39);
+            fieldFechaApertura.Size = new Size(154, 34);
             fieldFechaApertura.TabIndex = 39;
             fieldFechaApertura.Text = "00/00/0000 00:00";
             fieldFechaApertura.TextAlign = ContentAlignment.MiddleCenter;
@@ -172,10 +177,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldUsuarioApertura.Font = new Font("Segoe UI", 11.25F);
             fieldUsuarioApertura.ForeColor = Color.DimGray;
             fieldUsuarioApertura.ImeMode = ImeMode.NoControl;
-            fieldUsuarioApertura.Location = new Point(345, 1);
+            fieldUsuarioApertura.Location = new Point(330, 1);
             fieldUsuarioApertura.Margin = new Padding(5, 1, 1, 1);
             fieldUsuarioApertura.Name = "fieldUsuarioApertura";
-            fieldUsuarioApertura.Size = new Size(154, 39);
+            fieldUsuarioApertura.Size = new Size(139, 34);
             fieldUsuarioApertura.TabIndex = 37;
             fieldUsuarioApertura.Text = "apertura";
             fieldUsuarioApertura.TextAlign = ContentAlignment.MiddleLeft;
@@ -189,7 +194,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldCodigo.Location = new Point(1, 1);
             fieldCodigo.Margin = new Padding(1);
             fieldCodigo.Name = "fieldCodigo";
-            fieldCodigo.Size = new Size(178, 39);
+            fieldCodigo.Size = new Size(178, 34);
             fieldCodigo.TabIndex = 13;
             fieldCodigo.Text = "codigo";
             fieldCodigo.TextAlign = ContentAlignment.MiddleCenter;
@@ -200,10 +205,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldDiferenciaEfectivo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point,  0);
             fieldDiferenciaEfectivo.ForeColor = Color.Black;
             fieldDiferenciaEfectivo.ImeMode = ImeMode.NoControl;
-            fieldDiferenciaEfectivo.Location = new Point(921, 1);
+            fieldDiferenciaEfectivo.Location = new Point(891, 1);
             fieldDiferenciaEfectivo.Margin = new Padding(1);
             fieldDiferenciaEfectivo.Name = "fieldDiferenciaEfectivo";
-            fieldDiferenciaEfectivo.Size = new Size(108, 39);
+            fieldDiferenciaEfectivo.Size = new Size(108, 34);
             fieldDiferenciaEfectivo.TabIndex = 34;
             fieldDiferenciaEfectivo.Text = "difEfectivo";
             fieldDiferenciaEfectivo.TextAlign = ContentAlignment.MiddleRight;
@@ -214,10 +219,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldEfectivoCalculado.Font = new Font("Segoe UI", 11.25F);
             fieldEfectivoCalculado.ForeColor = Color.Black;
             fieldEfectivoCalculado.ImeMode = ImeMode.NoControl;
-            fieldEfectivoCalculado.Location = new Point(661, 1);
+            fieldEfectivoCalculado.Location = new Point(631, 1);
             fieldEfectivoCalculado.Margin = new Padding(1);
             fieldEfectivoCalculado.Name = "fieldEfectivoCalculado";
-            fieldEfectivoCalculado.Size = new Size(128, 39);
+            fieldEfectivoCalculado.Size = new Size(128, 34);
             fieldEfectivoCalculado.TabIndex = 35;
             fieldEfectivoCalculado.Text = "efCalculado";
             fieldEfectivoCalculado.TextAlign = ContentAlignment.MiddleRight;
@@ -228,10 +233,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldEfectivoDeclarado.Font = new Font("Segoe UI", 11.25F);
             fieldEfectivoDeclarado.ForeColor = Color.Black;
             fieldEfectivoDeclarado.ImeMode = ImeMode.NoControl;
-            fieldEfectivoDeclarado.Location = new Point(791, 1);
+            fieldEfectivoDeclarado.Location = new Point(761, 1);
             fieldEfectivoDeclarado.Margin = new Padding(1);
             fieldEfectivoDeclarado.Name = "fieldEfectivoDeclarado";
-            fieldEfectivoDeclarado.Size = new Size(128, 39);
+            fieldEfectivoDeclarado.Size = new Size(128, 34);
             fieldEfectivoDeclarado.TabIndex = 36;
             fieldEfectivoDeclarado.Text = "efDeclarado";
             fieldEfectivoDeclarado.TextAlign = ContentAlignment.MiddleRight;
@@ -246,7 +251,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldAlmacen.Location = new Point(181, 1);
             fieldAlmacen.Margin = new Padding(1);
             fieldAlmacen.Name = "fieldAlmacen";
-            fieldAlmacen.Size = new Size(158, 39);
+            fieldAlmacen.Size = new Size(143, 34);
             fieldAlmacen.TabIndex = 17;
             fieldAlmacen.Text = "almacen";
             fieldAlmacen.TextAlign = ContentAlignment.MiddleLeft;
@@ -257,10 +262,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             btnVerDetalleTurno.BorderColor = Color.Gainsboro;
             btnVerDetalleTurno.BorderRadius = 16;
             btnVerDetalleTurno.BorderThickness = 1;
-            btnVerDetalleTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage1");
-            btnVerDetalleTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image1");
+            btnVerDetalleTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage2");
+            btnVerDetalleTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image2");
             btnVerDetalleTurno.CustomImages.ImageAlign = HorizontalAlignment.Center;
-            btnVerDetalleTurno.CustomizableEdges = customizableEdges5;
+            btnVerDetalleTurno.CustomizableEdges = customizableEdges7;
             btnVerDetalleTurno.Dock = DockStyle.Fill;
             btnVerDetalleTurno.FillColor = Color.White;
             btnVerDetalleTurno.Font = new Font("Segoe UI", 9.75F);
@@ -268,11 +273,44 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             btnVerDetalleTurno.HoverState.BorderColor = Color.PeachPuff;
             btnVerDetalleTurno.HoverState.FillColor = Color.PeachPuff;
             btnVerDetalleTurno.HoverState.ForeColor = Color.White;
-            btnVerDetalleTurno.Location = new Point(1163, 3);
+            btnVerDetalleTurno.Location = new Point(1170, 3);
             btnVerDetalleTurno.Name = "btnVerDetalleTurno";
-            btnVerDetalleTurno.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnVerDetalleTurno.Size = new Size(34, 35);
+            btnVerDetalleTurno.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnVerDetalleTurno.Size = new Size(31, 30);
             btnVerDetalleTurno.TabIndex = 22;
+            // 
+            // separador1
+            // 
+            separador1.Dock = DockStyle.Fill;
+            separador1.FillColor = Color.Gainsboro;
+            separador1.Location = new Point(1, 38);
+            separador1.Margin = new Padding(1);
+            separador1.Name = "separador1";
+            separador1.Size = new Size(1239, 3);
+            separador1.TabIndex = 73;
+            // 
+            // btnGenerarHojaConteoTurno
+            // 
+            btnGenerarHojaConteoTurno.Animated = true;
+            btnGenerarHojaConteoTurno.BorderColor = Color.Gainsboro;
+            btnGenerarHojaConteoTurno.BorderRadius = 16;
+            btnGenerarHojaConteoTurno.BorderThickness = 1;
+            btnGenerarHojaConteoTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage");
+            btnGenerarHojaConteoTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image");
+            btnGenerarHojaConteoTurno.CustomImages.ImageAlign = HorizontalAlignment.Center;
+            btnGenerarHojaConteoTurno.CustomizableEdges = customizableEdges1;
+            btnGenerarHojaConteoTurno.Dock = DockStyle.Fill;
+            btnGenerarHojaConteoTurno.FillColor = Color.White;
+            btnGenerarHojaConteoTurno.Font = new Font("Segoe UI", 9.75F);
+            btnGenerarHojaConteoTurno.ForeColor = Color.White;
+            btnGenerarHojaConteoTurno.HoverState.BorderColor = Color.PeachPuff;
+            btnGenerarHojaConteoTurno.HoverState.FillColor = Color.PeachPuff;
+            btnGenerarHojaConteoTurno.HoverState.ForeColor = Color.White;
+            btnGenerarHojaConteoTurno.Location = new Point(1133, 3);
+            btnGenerarHojaConteoTurno.Name = "btnGenerarHojaConteoTurno";
+            btnGenerarHojaConteoTurno.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnGenerarHojaConteoTurno.Size = new Size(31, 30);
+            btnGenerarHojaConteoTurno.TabIndex = 42;
             // 
             // VistaTuplaTurno
             // 
@@ -308,5 +346,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         private Label fieldFechaApertura;
         private Guna2Button fieldEstado;
         private Guna2Button btnAnularTurno;
+        private Guna2Separator separador1;
+        private Guna2Button btnGenerarHojaConteoTurno;
     }
 }

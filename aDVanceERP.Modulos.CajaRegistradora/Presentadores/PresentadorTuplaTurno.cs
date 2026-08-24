@@ -5,13 +5,21 @@ using aDVanceERP.Core.Modelos.Comun;
 using aDVanceERP.Core.Modelos.Modulos.Caja;
 using aDVanceERP.Core.Presentadores.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
+using aDVanceERP.Modulos.CajaRegistradora.Documentos;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 
 namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
     internal class PresentadorTuplaTurno : PresentadorVistaTupla<IVistaTuplaTurno, CajaTurno> {
         public PresentadorTuplaTurno(IVistaTuplaTurno vista, CajaTurno entidad) : base(vista, entidad) {
+            vista.GenerarHojaConteoTurno += OnGenerarHojaConteoTurno;
             vista.VerDetalleTurno += OnVerDetalleTurno;
             vista.AnularTurno += OnAnularTurno;
+        }
+
+        private void OnGenerarHojaConteoTurno(object? sender, long e) {
+            var documento = new DocHojaConteoTurno(e, Vista.Codigo);
+
+            documento.GenerarDocumento(mostrar: true);
         }
 
         private void OnVerDetalleTurno(object? sender, long e) {

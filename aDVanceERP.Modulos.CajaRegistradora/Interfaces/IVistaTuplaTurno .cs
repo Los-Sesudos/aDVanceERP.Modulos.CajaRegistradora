@@ -18,6 +18,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Interfaces {
         decimal? DiferenciaTransferencias { get; set; }
         EstadoCajaTurnoEnum Estado { get; set; }
 
+        event EventHandler<long>? GenerarHojaConteoTurno;
         /// <summary>Solicita abrir la vista de detalle/historial del turno.</summary>
         event EventHandler<long>? VerDetalleTurno;
 

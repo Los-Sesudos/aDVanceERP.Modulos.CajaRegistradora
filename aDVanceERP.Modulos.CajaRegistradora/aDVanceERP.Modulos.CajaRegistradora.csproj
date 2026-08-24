@@ -17,6 +17,9 @@
     <Compile Update="Vistas\VistaDetalleTurno.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Vistas\VistaMenuMaestros.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Vistas\VistaMovimientoCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -45,10 +48,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Documentos\" />
   </ItemGroup>
 
   <ItemGroup>

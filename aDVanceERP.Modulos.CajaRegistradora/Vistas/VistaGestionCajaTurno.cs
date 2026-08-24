@@ -77,7 +77,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
 
         public long IdAlmacenSeleccionado { get; set; }
 
-        public string CodigoTurnoActivo { 
+        public string CodigoTurnoActivo {
             get => fieldCodigoTurnoActivo.Text;
         }
 
@@ -96,9 +96,11 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         public event EventHandler? AbrirTurno;
         public event EventHandler? CerrarTurno;
         public event EventHandler? RegistrarMovimiento;
+        public event EventHandler<DateTime> GenerarDocumentoResumenMovimientos;
 
         public void Inicializar() {
             // Eventos
+            fieldFechaResumenMovimientos.Value = DateTime.Today;
             fieldFiltroAlmacen.SelectedIndexChanged += OnCambioIndiceFiltroAlmacen;
             fieldFiltroBusquedaFechaDesde.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             fieldFiltroBusquedaFechaDesde.ValueChanged += OnCambioValorFechaDesde;
@@ -117,6 +119,9 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             };
             btnAbrirTurno.Click += delegate (object? sender, EventArgs e) {
                 AbrirTurno?.Invoke(sender, e);
+            };
+            btnGenerarResumenMovimientos.Click += delegate (object? sender, EventArgs e) {
+                GenerarDocumentoResumenMovimientos?.Invoke(sender, fieldFechaResumenMovimientos.Value);
             };
             btnCerrarTurno.Click += delegate (object? sender, EventArgs e) {
                 CerrarTurno?.Invoke(sender, e);
