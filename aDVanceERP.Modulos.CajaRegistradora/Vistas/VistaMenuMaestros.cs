@@ -34,17 +34,12 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
     
         public void Inicializar() {
             // Eventos
-            btnMonedas.Click += delegate { 
-                AgregadorEventos.Publicar(new EventoMostrarVistaGestionMonedas()); 
-            };
             btnAtras.Click += delegate { 
                 AgregadorEventos.Publicar(new EventoMostrarVistaMenuCajaRegistradora()); 
             };
         }
 
         public void SeleccionarVistaInicial() {
-            if (btnMonedas.Visible)
-                btnMonedas.PerformClick();
         }
 
         public void Mostrar() {

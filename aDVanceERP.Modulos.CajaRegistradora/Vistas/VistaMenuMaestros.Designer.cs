@@ -29,18 +29,14 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaMenuMaestros));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             formatoBase = new Guna2BorderlessForm(components);
             layoutBase = new TableLayoutPanel();
             layoutDistribucion = new TableLayoutPanel();
             btnAtras = new Guna2Button();
             fieldTitulo = new Label();
             panelRelleno = new Panel();
-            btnMonedas = new Guna2Button();
             layoutBase.SuspendLayout();
             layoutDistribucion.SuspendLayout();
-            panelRelleno.SuspendLayout();
             SuspendLayout();
             // 
             // formatoBase
@@ -127,7 +123,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
             // panelRelleno
             // 
             panelRelleno.BackColor = Color.WhiteSmoke;
-            panelRelleno.Controls.Add(btnMonedas);
             panelRelleno.Dock = DockStyle.Fill;
             panelRelleno.Font = new Font("Segoe UI", 11.25F);
             panelRelleno.Location = new Point(195, 0);
@@ -135,30 +130,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
             panelRelleno.Name = "panelRelleno";
             panelRelleno.Size = new Size(799, 50);
             panelRelleno.TabIndex = 0;
-            // 
-            // btnMonedas
-            // 
-            btnMonedas.Animated = true;
-            btnMonedas.BackColor = Color.WhiteSmoke;
-            btnMonedas.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnMonedas.CheckedState.FillColor = Color.WhiteSmoke;
-            btnMonedas.CheckedState.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            btnMonedas.CustomImages.CheckedImage = Properties.Resources.barra_seleccion;
-            btnMonedas.CustomImages.ImageAlign = HorizontalAlignment.Center;
-            btnMonedas.CustomImages.ImageOffset = new Point(0, 32);
-            btnMonedas.CustomImages.ImageSize = new Size(131, 8);
-            btnMonedas.CustomizableEdges = customizableEdges3;
-            btnMonedas.Dock = DockStyle.Left;
-            btnMonedas.FillColor = Color.WhiteSmoke;
-            btnMonedas.Font = new Font("Segoe UI", 11.25F);
-            btnMonedas.ForeColor = Color.Black;
-            btnMonedas.Location = new Point(0, 0);
-            btnMonedas.Margin = new Padding(0);
-            btnMonedas.Name = "btnMonedas";
-            btnMonedas.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnMonedas.Size = new Size(140, 50);
-            btnMonedas.TabIndex = 17;
-            btnMonedas.Text = "Monedas";
             // 
             // VistaMenuMaestros
             // 
@@ -176,7 +147,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
             Text = "VistaMenu";
             layoutBase.ResumeLayout(false);
             layoutDistribucion.ResumeLayout(false);
-            panelRelleno.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -188,6 +158,5 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
         private Panel panelRelleno;
         private Label fieldTitulo;
         private Guna2Button btnAtras;
-        private Guna2Button btnMonedas;
     }
 }

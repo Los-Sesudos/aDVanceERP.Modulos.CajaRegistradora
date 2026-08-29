@@ -90,7 +90,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
         }
 
         protected override void InicializarEventos() {
-            AgregadorEventos.Suscribir<EventoPagoVentaConfirmado>(_manejadorCaja.Manejar);
+            //AgregadorEventos.Suscribir<EventoPagoVentaConfirmado>(_manejadorCaja.Manejar);
             AgregadorEventos.Suscribir<EventoPagoVentaAnulado>(_manejadorCaja.Manejar);
             AgregadorEventos.Suscribir<EventoTurnoCajaAperturado>(_manejadorAperturaTurno.Manejar);
             AgregadorEventos.Suscribir<EventoConfirmacionCierreTurno>(_manejadorCierreTurno.Manejar);
@@ -102,8 +102,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
         }
 
         public override void Apagar() {
-            // Desuscribir eventos
-            AgregadorEventos.Desuscribir<EventoPagoVentaConfirmado>(_manejadorCaja.Manejar);
+            //AgregadorEventos.Desuscribir<EventoPagoVentaConfirmado>(_manejadorCaja.Manejar);
             AgregadorEventos.Desuscribir<EventoPagoVentaAnulado>(_manejadorCaja.Manejar);
             AgregadorEventos.Desuscribir<EventoTurnoCajaAperturado>(_manejadorAperturaTurno.Manejar);
             AgregadorEventos.Desuscribir<EventoConfirmacionCierreTurno>(_manejadorCierreTurno.Manejar);
