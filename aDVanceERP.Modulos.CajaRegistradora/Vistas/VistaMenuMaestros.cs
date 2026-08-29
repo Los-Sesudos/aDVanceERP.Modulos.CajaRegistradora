@@ -48,7 +48,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
         }
 
         public void Restaurar() {
-            btnMonedas.Checked = false;
         }
 
         public void Ocultar() {

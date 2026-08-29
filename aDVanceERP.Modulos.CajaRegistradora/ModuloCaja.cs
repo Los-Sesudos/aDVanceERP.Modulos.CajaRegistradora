@@ -2,7 +2,6 @@
 using aDVanceERP.Core.Eventos.Modulos;
 using aDVanceERP.Core.Eventos.Modulos.Caja;
 using aDVanceERP.Core.Eventos.Modulos.Seguridad;
-using aDVanceERP.Core.Eventos.Modulos.Venta;
 using aDVanceERP.Core.Extension.Interfaces.BaseConcreta;
 using aDVanceERP.Core.Infraestructura.Globales;
 using aDVanceERP.Core.Modelos.Modulos.Comun;
@@ -90,8 +89,9 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
         }
 
         protected override void InicializarEventos() {
+            // TODO: Conexión entre el módulo de caja y el módulo de ventas.
             //AgregadorEventos.Suscribir<EventoPagoVentaConfirmado>(_manejadorCaja.Manejar);
-            AgregadorEventos.Suscribir<EventoPagoVentaAnulado>(_manejadorCaja.Manejar);
+            //AgregadorEventos.Suscribir<EventoPagoVentaAnulado>(_manejadorCaja.Manejar);
             AgregadorEventos.Suscribir<EventoTurnoCajaAperturado>(_manejadorAperturaTurno.Manejar);
             AgregadorEventos.Suscribir<EventoConfirmacionCierreTurno>(_manejadorCierreTurno.Manejar);
             AgregadorEventos.Suscribir<EventoUsuarioAutenticado>(OnUsuarioAutenticado);
@@ -102,8 +102,9 @@ namespace aDVanceERP.Modulos.CajaRegistradora {
         }
 
         public override void Apagar() {
+            // TODO: Conexión entre el módulo de caja y el módulo de ventas.
             //AgregadorEventos.Desuscribir<EventoPagoVentaConfirmado>(_manejadorCaja.Manejar);
-            AgregadorEventos.Desuscribir<EventoPagoVentaAnulado>(_manejadorCaja.Manejar);
+            //AgregadorEventos.Desuscribir<EventoPagoVentaAnulado>(_manejadorCaja.Manejar);
             AgregadorEventos.Desuscribir<EventoTurnoCajaAperturado>(_manejadorAperturaTurno.Manejar);
             AgregadorEventos.Desuscribir<EventoConfirmacionCierreTurno>(_manejadorCierreTurno.Manejar);
             AgregadorEventos.Desuscribir<EventoUsuarioAutenticado>(OnUsuarioAutenticado);
