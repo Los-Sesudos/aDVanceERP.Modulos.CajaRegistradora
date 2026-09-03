@@ -1,4 +1,5 @@
 ﻿using aDVanceERP.Core.Modelos.Modulos.Caja;
+using aDVanceERP.Core.Modelos.Modulos.Monedas;
 using aDVanceERP.Core.Vistas.Comun.Interfaces;
 
 namespace aDVanceERP.Modulos.CajaRegistradora.Interfaces {
@@ -18,8 +19,12 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Interfaces {
 
         IEnumerable<CajaArqueo> ObtenerArqueo();
         void ActualizarTotalArqueo(decimal totalContado);
+        void PopularDenominaciones(DenominacionMoneda[] denominaciones);
+        List<CajaConciliacionMoneda> ObtenerConciliacion();
+        void PopularConciliacion(List<TotalesCierreCaja> totalesCalculados, long idMonedaBase);
 
         event EventHandler? ArqueoModificado;
+        event EventHandler? ConciliacionModificada;
         event EventHandler? ConfirmarCierreTurno;
     }
 }

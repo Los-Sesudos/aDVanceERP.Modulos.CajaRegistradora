@@ -40,9 +40,9 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Manejadores {
             var cerrado = RepoCajaTurno.Instancia.CerrarTurno(
                 idTurno: e.Turno.Id,
                 idCuentaCierre: idUsuario,
-                montoEfectivoCalculado: e.TotalesCierreCaja!.TotalEfectivo,
+                montoEfectivoCalculado: 0,//TODO: e.TotalesCierreCaja!.TotalEfectivo,
                 montoEfectivoDeclarado: e.MontoEfectivoDeclarado,
-                montoTransferenciasCalculado: e.TotalesCierreCaja.TotalTransferencias,
+                montoTransferenciasCalculado: 0, // TODO: e.TotalesCierreCaja.TotalTransferencias,
                 montoTransferenciasDeclarado: e.MontoTransferenciasDeclarado,
                 observacionesCierre: e.Observaciones);
 

@@ -1,10 +1,11 @@
-﻿using aDVanceERP.Core.Eventos;
-using aDVanceERP.Core.Eventos.Comun;
+﻿using aDVanceERP.Core.Eventos.Comun;
 using aDVanceERP.Core.Eventos.Modulos.Caja;
 using aDVanceERP.Core.Modelos.Comun.Interfaces;
 using aDVanceERP.Core.Modelos.Modulos.Caja;
+using aDVanceERP.Core.Modelos.Modulos.Monedas;
 using aDVanceERP.Core.Presentadores.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
+using aDVanceERP.Core.Repositorios.Modulos.Monedas;
 using aDVanceERP.Core.Repositorios.Modulos.Seguridad;
 using aDVanceERP.Core.Repositorios.Modulos.Venta;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
@@ -38,6 +39,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
             var presentadorTupla = new PresentadorTuplaDetalleTurno(new VistaTuplaDetalleTurno(), entidad);
             var venta = RepoVenta.Instancia.ObtenerPorId(entidad.IdVenta);
             var cuentaUsuario = RepoCuentaUsuario.Instancia.ObtenerPorId(entidad.IdCuentaUsuario);
+            var moneda = RepoMoneda.Instancia.ObtenerPorId(entidad.IdMoneda);
             
             presentadorTupla.Vista.Id = entidad.Id;
             presentadorTupla.Vista.FechaMovimiento = entidad.FechaMovimiento.ToString("dd/MM/yyyy HH:mm");
@@ -47,6 +49,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
                 ? venta!.NumeroFacturaTicket
                 : entidad.Descripcion;
             presentadorTupla.Vista.Operador = cuentaUsuario?.Nombre ?? "admin";
+            presentadorTupla.Vista.Moneda = moneda;
             presentadorTupla.Vista.Monto = entidad.Monto;
 
             return presentadorTupla;

@@ -24,17 +24,15 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaCierreTurno));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             formatoBase = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             layoutVista = new TableLayoutPanel();
             layoutTitulo = new TableLayoutPanel();
@@ -43,11 +41,20 @@
             layoutDistribucion1 = new TableLayoutPanel();
             layoutDistribucion2 = new TableLayoutPanel();
             layoutDatos1 = new TableLayoutPanel();
+            guna2vSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             layoutDistribucionConteoDenominaciones = new TableLayoutPanel();
-            fieldTotalContado = new Label();
-            fieldTituloTotalContado = new Label();
+            separador6 = new Guna.UI2.WinForms.Guna2Separator();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            fieldTituloMonedaConteoFisico = new Label();
+            panelMonedasDenominaciones = new FlowLayoutPanel();
             separador3 = new Guna.UI2.WinForms.Guna2Separator();
+            layoutTotalesDenominacion = new TableLayoutPanel();
+            fieldTituloTotalContado = new Label();
+            fieldTotalContado = new Label();
+            panelConteoDenominaciones = new FlowLayoutPanel();
             layoutDistribucionConciliacion = new TableLayoutPanel();
+            panelConciliacion = new Panel();
+            guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             separador5 = new Guna.UI2.WinForms.Guna2Separator();
             panelAdvertencia = new Guna.UI2.WinForms.Guna2Panel();
             layoutPanelAdvertencia = new TableLayoutPanel();
@@ -80,28 +87,22 @@
             layoutBotones = new TableLayoutPanel();
             btnSalir = new Guna.UI2.WinForms.Guna2Button();
             btnConfirmarCierreTurno = new Guna.UI2.WinForms.Guna2Button();
-            fieldDescripcionCategoriaProducto = new ToolTip(components);
-            layoutTotalesDenominacion = new TableLayoutPanel();
-            panelDenominaciones = new FlowLayoutPanel();
-            fieldTituloCanalEfectivo = new Label();
-            fieldEfectivoCalculado = new Label();
-            fieldMontoEfectivoDeclarado = new Guna.UI2.WinForms.Guna2TextBox();
-            fieldDiferenciaEfectivo = new Label();
-            layoutDatosEfectivo = new TableLayoutPanel();
             layoutTotalesDiferencia = new TableLayoutPanel();
-            fieldTituloTotalDiferencia = new Label();
-            fieldTotalDiferencia = new Label();
-            fieldTituloTotalCalculado = new Label();
-            fieldTotalCalculado = new Label();
-            fieldTituloTotalDeclarado = new Label();
             fieldTotalDeclarado = new Label();
-            guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            fieldTituloTotalDeclarado = new Label();
+            fieldTotalCalculado = new Label();
+            fieldTituloTotalCalculado = new Label();
+            fieldTotalDiferencia = new Label();
+            fieldTituloTotalDiferencia = new Label();
+            fieldDescripcionCategoriaProducto = new ToolTip(components);
             layoutVista.SuspendLayout();
             layoutTitulo.SuspendLayout();
             layoutDistribucion1.SuspendLayout();
             layoutDistribucion2.SuspendLayout();
             layoutDatos1.SuspendLayout();
             layoutDistribucionConteoDenominaciones.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            layoutTotalesDenominacion.SuspendLayout();
             layoutDistribucionConciliacion.SuspendLayout();
             panelAdvertencia.SuspendLayout();
             layoutPanelAdvertencia.SuspendLayout();
@@ -113,8 +114,6 @@
             layoutDatosTurno.SuspendLayout();
             layoutDistribucionDatosTurno.SuspendLayout();
             layoutBotones.SuspendLayout();
-            layoutTotalesDenominacion.SuspendLayout();
-            layoutDatosEfectivo.SuspendLayout();
             layoutTotalesDiferencia.SuspendLayout();
             SuspendLayout();
             // 
@@ -239,6 +238,7 @@
             layoutDatos1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             layoutDatos1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             layoutDatos1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            layoutDatos1.Controls.Add(guna2vSeparator1, 1, 0);
             layoutDatos1.Controls.Add(layoutDistribucionConteoDenominaciones, 0, 0);
             layoutDatos1.Controls.Add(layoutDistribucionConciliacion, 2, 0);
             layoutDatos1.Dock = DockStyle.Fill;
@@ -250,43 +250,115 @@
             layoutDatos1.Size = new Size(1286, 390);
             layoutDatos1.TabIndex = 51;
             // 
+            // guna2vSeparator1
+            // 
+            guna2vSeparator1.Dock = DockStyle.Fill;
+            guna2vSeparator1.FillColor = Color.FromArgb(  208,   197,   188);
+            guna2vSeparator1.Location = new Point(636, 3);
+            guna2vSeparator1.Name = "guna2vSeparator1";
+            guna2vSeparator1.Size = new Size(14, 384);
+            guna2vSeparator1.TabIndex = 52;
+            // 
             // layoutDistribucionConteoDenominaciones
             // 
             layoutDistribucionConteoDenominaciones.ColumnCount = 1;
-            layoutDistribucionConteoDenominaciones.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            layoutDistribucionConteoDenominaciones.Controls.Add(separador3, 0, 1);
-            layoutDistribucionConteoDenominaciones.Controls.Add(layoutTotalesDenominacion, 0, 2);
-            layoutDistribucionConteoDenominaciones.Controls.Add(panelDenominaciones, 0, 0);
+            layoutDistribucionConteoDenominaciones.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            layoutDistribucionConteoDenominaciones.Controls.Add(separador6, 0, 1);
+            layoutDistribucionConteoDenominaciones.Controls.Add(tableLayoutPanel1, 0, 0);
+            layoutDistribucionConteoDenominaciones.Controls.Add(separador3, 0, 3);
+            layoutDistribucionConteoDenominaciones.Controls.Add(layoutTotalesDenominacion, 0, 4);
+            layoutDistribucionConteoDenominaciones.Controls.Add(panelConteoDenominaciones, 0, 2);
             layoutDistribucionConteoDenominaciones.Dock = DockStyle.Fill;
             layoutDistribucionConteoDenominaciones.Location = new Point(0, 0);
             layoutDistribucionConteoDenominaciones.Margin = new Padding(0, 0, 0, 20);
             layoutDistribucionConteoDenominaciones.Name = "layoutDistribucionConteoDenominaciones";
-            layoutDistribucionConteoDenominaciones.RowCount = 3;
+            layoutDistribucionConteoDenominaciones.RowCount = 5;
+            layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 42F));
+            layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 10F));
             layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 10F));
             layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
-            layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            layoutDistribucionConteoDenominaciones.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             layoutDistribucionConteoDenominaciones.Size = new Size(633, 370);
             layoutDistribucionConteoDenominaciones.TabIndex = 0;
             // 
-            // fieldTotalContado
+            // separador6
             // 
-            fieldTotalContado.Dock = DockStyle.Fill;
-            fieldTotalContado.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point,  0);
-            fieldTotalContado.ForeColor = Color.FromArgb(  64,   64,   64);
-            fieldTotalContado.ImeMode = ImeMode.NoControl;
-            fieldTotalContado.Location = new Point(317, 1);
-            fieldTotalContado.Margin = new Padding(1);
-            fieldTotalContado.Name = "fieldTotalContado";
-            fieldTotalContado.Size = new Size(315, 33);
-            fieldTotalContado.TabIndex = 68;
-            fieldTotalContado.Text = "$ 0,00";
-            fieldTotalContado.TextAlign = ContentAlignment.MiddleRight;
+            separador6.Dock = DockStyle.Fill;
+            separador6.FillColor = Color.Gainsboro;
+            separador6.FillThickness = 3;
+            separador6.Location = new Point(0, 45);
+            separador6.Margin = new Padding(0, 3, 3, 3);
+            separador6.Name = "separador6";
+            separador6.Size = new Size(630, 4);
+            separador6.TabIndex = 71;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(fieldTituloMonedaConteoFisico, 0, 0);
+            tableLayoutPanel1.Controls.Add(panelMonedasDenominaciones, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(633, 42);
+            tableLayoutPanel1.TabIndex = 70;
+            // 
+            // fieldTituloMonedaConteoFisico
+            // 
+            fieldTituloMonedaConteoFisico.Dock = DockStyle.Fill;
+            fieldTituloMonedaConteoFisico.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point,  0);
+            fieldTituloMonedaConteoFisico.ForeColor = Color.DimGray;
+            fieldTituloMonedaConteoFisico.ImeMode = ImeMode.NoControl;
+            fieldTituloMonedaConteoFisico.Location = new Point(5, 5);
+            fieldTituloMonedaConteoFisico.Margin = new Padding(5);
+            fieldTituloMonedaConteoFisico.Name = "fieldTituloMonedaConteoFisico";
+            fieldTituloMonedaConteoFisico.Size = new Size(150, 32);
+            fieldTituloMonedaConteoFisico.TabIndex = 68;
+            fieldTituloMonedaConteoFisico.Text = "DENOMINACIONES";
+            fieldTituloMonedaConteoFisico.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // panelMonedasDenominaciones
+            // 
+            panelMonedasDenominaciones.Dock = DockStyle.Fill;
+            panelMonedasDenominaciones.Location = new Point(160, 0);
+            panelMonedasDenominaciones.Margin = new Padding(0);
+            panelMonedasDenominaciones.Name = "panelMonedasDenominaciones";
+            panelMonedasDenominaciones.Size = new Size(473, 42);
+            panelMonedasDenominaciones.TabIndex = 69;
+            // 
+            // separador3
+            // 
+            separador3.Dock = DockStyle.Fill;
+            separador3.FillColor = Color.Gainsboro;
+            separador3.FillThickness = 3;
+            separador3.Location = new Point(3, 328);
+            separador3.Margin = new Padding(3, 3, 0, 3);
+            separador3.Name = "separador3";
+            separador3.Size = new Size(630, 4);
+            separador3.TabIndex = 65;
+            // 
+            // layoutTotalesDenominacion
+            // 
+            layoutTotalesDenominacion.ColumnCount = 2;
+            layoutTotalesDenominacion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            layoutTotalesDenominacion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            layoutTotalesDenominacion.Controls.Add(fieldTituloTotalContado, 0, 0);
+            layoutTotalesDenominacion.Controls.Add(fieldTotalContado, 1, 0);
+            layoutTotalesDenominacion.Dock = DockStyle.Fill;
+            layoutTotalesDenominacion.Location = new Point(0, 335);
+            layoutTotalesDenominacion.Margin = new Padding(0);
+            layoutTotalesDenominacion.Name = "layoutTotalesDenominacion";
+            layoutTotalesDenominacion.RowCount = 1;
+            layoutTotalesDenominacion.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            layoutTotalesDenominacion.Size = new Size(633, 35);
+            layoutTotalesDenominacion.TabIndex = 69;
             // 
             // fieldTituloTotalContado
             // 
@@ -302,23 +374,37 @@
             fieldTituloTotalContado.Text = "TOTAL CONTADO :";
             fieldTituloTotalContado.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // separador3
+            // fieldTotalContado
             // 
-            separador3.Dock = DockStyle.Fill;
-            separador3.FillColor = Color.Gainsboro;
-            separador3.FillThickness = 3;
-            separador3.Location = new Point(3, 328);
-            separador3.Margin = new Padding(3, 3, 0, 3);
-            separador3.Name = "separador3";
-            separador3.Size = new Size(630, 4);
-            separador3.TabIndex = 65;
+            fieldTotalContado.Dock = DockStyle.Fill;
+            fieldTotalContado.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point,  0);
+            fieldTotalContado.ForeColor = Color.FromArgb(  64,   64,   64);
+            fieldTotalContado.ImeMode = ImeMode.NoControl;
+            fieldTotalContado.Location = new Point(317, 1);
+            fieldTotalContado.Margin = new Padding(1);
+            fieldTotalContado.Name = "fieldTotalContado";
+            fieldTotalContado.Size = new Size(315, 33);
+            fieldTotalContado.TabIndex = 68;
+            fieldTotalContado.Text = "$ 0,00";
+            fieldTotalContado.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // panelConteoDenominaciones
+            // 
+            panelConteoDenominaciones.AutoScroll = true;
+            panelConteoDenominaciones.Dock = DockStyle.Fill;
+            panelConteoDenominaciones.FlowDirection = FlowDirection.TopDown;
+            panelConteoDenominaciones.Location = new Point(0, 52);
+            panelConteoDenominaciones.Margin = new Padding(0);
+            panelConteoDenominaciones.Name = "panelConteoDenominaciones";
+            panelConteoDenominaciones.Size = new Size(633, 273);
+            panelConteoDenominaciones.TabIndex = 72;
             // 
             // layoutDistribucionConciliacion
             // 
             layoutDistribucionConciliacion.ColumnCount = 1;
             layoutDistribucionConciliacion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            layoutDistribucionConciliacion.Controls.Add(panelConciliacion, 0, 2);
             layoutDistribucionConciliacion.Controls.Add(guna2Separator1, 0, 3);
-            layoutDistribucionConciliacion.Controls.Add(layoutDatosEfectivo, 0, 2);
             layoutDistribucionConciliacion.Controls.Add(separador5, 0, 1);
             layoutDistribucionConciliacion.Controls.Add(panelAdvertencia, 0, 4);
             layoutDistribucionConciliacion.Controls.Add(layoutEncabezadosTabla, 0, 0);
@@ -327,7 +413,7 @@
             layoutDistribucionConciliacion.Margin = new Padding(0, 0, 0, 20);
             layoutDistribucionConciliacion.Name = "layoutDistribucionConciliacion";
             layoutDistribucionConciliacion.RowCount = 5;
-            layoutDistribucionConciliacion.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            layoutDistribucionConciliacion.RowStyles.Add(new RowStyle(SizeType.Absolute, 42F));
             layoutDistribucionConciliacion.RowStyles.Add(new RowStyle(SizeType.Absolute, 10F));
             layoutDistribucionConciliacion.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             layoutDistribucionConciliacion.RowStyles.Add(new RowStyle(SizeType.Absolute, 10F));
@@ -335,12 +421,34 @@
             layoutDistribucionConciliacion.Size = new Size(633, 370);
             layoutDistribucionConciliacion.TabIndex = 1;
             // 
+            // panelConciliacion
+            // 
+            panelConciliacion.BackColor = Color.White;
+            panelConciliacion.Dock = DockStyle.Fill;
+            panelConciliacion.Font = new Font("Segoe UI", 11.25F);
+            panelConciliacion.Location = new Point(0, 52);
+            panelConciliacion.Margin = new Padding(0);
+            panelConciliacion.Name = "panelConciliacion";
+            panelConciliacion.Size = new Size(633, 273);
+            panelConciliacion.TabIndex = 70;
+            // 
+            // guna2Separator1
+            // 
+            guna2Separator1.Dock = DockStyle.Fill;
+            guna2Separator1.FillColor = Color.Gainsboro;
+            guna2Separator1.FillThickness = 3;
+            guna2Separator1.Location = new Point(3, 328);
+            guna2Separator1.Margin = new Padding(3, 3, 0, 3);
+            guna2Separator1.Name = "guna2Separator1";
+            guna2Separator1.Size = new Size(630, 4);
+            guna2Separator1.TabIndex = 69;
+            // 
             // separador5
             // 
             separador5.Dock = DockStyle.Fill;
             separador5.FillColor = Color.Gainsboro;
             separador5.FillThickness = 3;
-            separador5.Location = new Point(0, 48);
+            separador5.Location = new Point(0, 45);
             separador5.Margin = new Padding(0, 3, 3, 3);
             separador5.Name = "separador5";
             separador5.Size = new Size(630, 4);
@@ -353,14 +461,14 @@
             panelAdvertencia.BorderRadius = 8;
             panelAdvertencia.BorderThickness = 1;
             panelAdvertencia.Controls.Add(layoutPanelAdvertencia);
-            panelAdvertencia.CustomizableEdges = customizableEdges21;
+            panelAdvertencia.CustomizableEdges = customizableEdges1;
             panelAdvertencia.Dock = DockStyle.Fill;
             panelAdvertencia.FillColor = Color.FromArgb(  255,   251,   230);
             panelAdvertencia.Location = new Point(6, 336);
             panelAdvertencia.Margin = new Padding(6, 1, 6, 1);
             panelAdvertencia.Name = "panelAdvertencia";
             panelAdvertencia.ShadowDecoration.BorderRadius = 8;
-            panelAdvertencia.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            panelAdvertencia.ShadowDecoration.CustomizableEdges = customizableEdges2;
             panelAdvertencia.ShadowDecoration.Depth = 10;
             panelAdvertencia.Size = new Size(621, 33);
             panelAdvertencia.TabIndex = 54;
@@ -411,7 +519,7 @@
             layoutEncabezadosTabla.Name = "layoutEncabezadosTabla";
             layoutEncabezadosTabla.RowCount = 1;
             layoutEncabezadosTabla.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            layoutEncabezadosTabla.Size = new Size(633, 45);
+            layoutEncabezadosTabla.Size = new Size(633, 42);
             layoutEncabezadosTabla.TabIndex = 55;
             // 
             // fieldTituloDiferencia
@@ -423,7 +531,7 @@
             fieldTituloDiferencia.Location = new Point(517, 5);
             fieldTituloDiferencia.Margin = new Padding(5);
             fieldTituloDiferencia.Name = "fieldTituloDiferencia";
-            fieldTituloDiferencia.Size = new Size(111, 35);
+            fieldTituloDiferencia.Size = new Size(111, 32);
             fieldTituloDiferencia.TabIndex = 71;
             fieldTituloDiferencia.Text = "DIFERENCIA";
             fieldTituloDiferencia.TextAlign = ContentAlignment.MiddleRight;
@@ -437,7 +545,7 @@
             fieldTituloDeclarado.Location = new Point(341, 5);
             fieldTituloDeclarado.Margin = new Padding(5);
             fieldTituloDeclarado.Name = "fieldTituloDeclarado";
-            fieldTituloDeclarado.Size = new Size(166, 35);
+            fieldTituloDeclarado.Size = new Size(166, 32);
             fieldTituloDeclarado.TabIndex = 70;
             fieldTituloDeclarado.Text = "DECLARADO";
             fieldTituloDeclarado.TextAlign = ContentAlignment.MiddleRight;
@@ -451,7 +559,7 @@
             fieldTituloCalculado.Location = new Point(165, 5);
             fieldTituloCalculado.Margin = new Padding(5);
             fieldTituloCalculado.Name = "fieldTituloCalculado";
-            fieldTituloCalculado.Size = new Size(166, 35);
+            fieldTituloCalculado.Size = new Size(166, 32);
             fieldTituloCalculado.TabIndex = 69;
             fieldTituloCalculado.Text = "CALCULADO";
             fieldTituloCalculado.TextAlign = ContentAlignment.MiddleRight;
@@ -465,7 +573,7 @@
             fieldTituloMoneda.Location = new Point(5, 5);
             fieldTituloMoneda.Margin = new Padding(5);
             fieldTituloMoneda.Name = "fieldTituloMoneda";
-            fieldTituloMoneda.Size = new Size(150, 35);
+            fieldTituloMoneda.Size = new Size(150, 32);
             fieldTituloMoneda.TabIndex = 68;
             fieldTituloMoneda.Text = "MONEDA";
             fieldTituloMoneda.TextAlign = ContentAlignment.MiddleLeft;
@@ -569,14 +677,14 @@
             panelDatosTurno.BorderRadius = 8;
             panelDatosTurno.BorderThickness = 1;
             panelDatosTurno.Controls.Add(layoutDatosTurno);
-            panelDatosTurno.CustomizableEdges = customizableEdges23;
+            panelDatosTurno.CustomizableEdges = customizableEdges3;
             panelDatosTurno.Dock = DockStyle.Fill;
             panelDatosTurno.FillColor = SystemColors.ButtonFace;
             panelDatosTurno.Location = new Point(50, 100);
             panelDatosTurno.Margin = new Padding(0);
             panelDatosTurno.Name = "panelDatosTurno";
             panelDatosTurno.ShadowDecoration.BorderRadius = 8;
-            panelDatosTurno.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            panelDatosTurno.ShadowDecoration.CustomizableEdges = customizableEdges4;
             panelDatosTurno.ShadowDecoration.Depth = 10;
             panelDatosTurno.Size = new Size(1286, 70);
             panelDatosTurno.TabIndex = 54;
@@ -796,7 +904,7 @@
             btnSalir.BorderColor = Color.Gainsboro;
             btnSalir.BorderRadius = 18;
             btnSalir.BorderThickness = 1;
-            btnSalir.CustomizableEdges = customizableEdges25;
+            btnSalir.CustomizableEdges = customizableEdges5;
             btnSalir.Dock = DockStyle.Fill;
             btnSalir.FillColor = Color.White;
             btnSalir.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
@@ -806,7 +914,7 @@
             btnSalir.HoverState.ForeColor = Color.Black;
             btnSalir.Location = new Point(1116, 3);
             btnSalir.Name = "btnSalir";
-            btnSalir.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btnSalir.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnSalir.Size = new Size(164, 39);
             btnSalir.TabIndex = 14;
             btnSalir.Text = "Cancelar";
@@ -815,155 +923,27 @@
             // 
             btnConfirmarCierreTurno.Animated = true;
             btnConfirmarCierreTurno.BorderRadius = 18;
-            btnConfirmarCierreTurno.CustomizableEdges = customizableEdges27;
+            btnConfirmarCierreTurno.CustomizableEdges = customizableEdges7;
             btnConfirmarCierreTurno.Dock = DockStyle.Fill;
             btnConfirmarCierreTurno.FillColor = Color.PeachPuff;
             btnConfirmarCierreTurno.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             btnConfirmarCierreTurno.ForeColor = Color.Black;
             btnConfirmarCierreTurno.Location = new Point(886, 3);
             btnConfirmarCierreTurno.Name = "btnConfirmarCierreTurno";
-            btnConfirmarCierreTurno.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            btnConfirmarCierreTurno.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnConfirmarCierreTurno.Size = new Size(224, 39);
             btnConfirmarCierreTurno.TabIndex = 15;
             btnConfirmarCierreTurno.Text = "Confirmar cierre";
             // 
-            // fieldDescripcionCategoriaProducto
-            // 
-            fieldDescripcionCategoriaProducto.BackColor = Color.PeachPuff;
-            // 
-            // layoutTotalesDenominacion
-            // 
-            layoutTotalesDenominacion.ColumnCount = 2;
-            layoutTotalesDenominacion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            layoutTotalesDenominacion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            layoutTotalesDenominacion.Controls.Add(fieldTituloTotalContado, 0, 0);
-            layoutTotalesDenominacion.Controls.Add(fieldTotalContado, 1, 0);
-            layoutTotalesDenominacion.Dock = DockStyle.Fill;
-            layoutTotalesDenominacion.Location = new Point(0, 335);
-            layoutTotalesDenominacion.Margin = new Padding(0);
-            layoutTotalesDenominacion.Name = "layoutTotalesDenominacion";
-            layoutTotalesDenominacion.RowCount = 1;
-            layoutTotalesDenominacion.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            layoutTotalesDenominacion.Size = new Size(633, 35);
-            layoutTotalesDenominacion.TabIndex = 69;
-            // 
-            // panelDenominaciones
-            // 
-            panelDenominaciones.Dock = DockStyle.Fill;
-            panelDenominaciones.Location = new Point(0, 0);
-            panelDenominaciones.Margin = new Padding(0);
-            panelDenominaciones.Name = "panelDenominaciones";
-            panelDenominaciones.Size = new Size(633, 325);
-            panelDenominaciones.TabIndex = 70;
-            // 
-            // fieldTituloCanalEfectivo
-            // 
-            fieldTituloCanalEfectivo.Dock = DockStyle.Fill;
-            fieldTituloCanalEfectivo.Font = new Font("Segoe UI", 11.25F);
-            fieldTituloCanalEfectivo.ForeColor = Color.DimGray;
-            fieldTituloCanalEfectivo.Image = (Image) resources.GetObject("fieldTituloCanalEfectivo.Image");
-            fieldTituloCanalEfectivo.ImageAlign = ContentAlignment.MiddleLeft;
-            fieldTituloCanalEfectivo.ImeMode = ImeMode.NoControl;
-            fieldTituloCanalEfectivo.Location = new Point(15, 5);
-            fieldTituloCanalEfectivo.Margin = new Padding(15, 5, 3, 3);
-            fieldTituloCanalEfectivo.Name = "fieldTituloCanalEfectivo";
-            fieldTituloCanalEfectivo.Size = new Size(142, 37);
-            fieldTituloCanalEfectivo.TabIndex = 27;
-            fieldTituloCanalEfectivo.Text = "       Efectivo :";
-            fieldTituloCanalEfectivo.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // fieldEfectivoCalculado
-            // 
-            fieldEfectivoCalculado.Dock = DockStyle.Fill;
-            fieldEfectivoCalculado.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            fieldEfectivoCalculado.ForeColor = Color.FromArgb(  64,   64,   64);
-            fieldEfectivoCalculado.ImeMode = ImeMode.NoControl;
-            fieldEfectivoCalculado.Location = new Point(161, 1);
-            fieldEfectivoCalculado.Margin = new Padding(1);
-            fieldEfectivoCalculado.Name = "fieldEfectivoCalculado";
-            fieldEfectivoCalculado.Size = new Size(174, 43);
-            fieldEfectivoCalculado.TabIndex = 28;
-            fieldEfectivoCalculado.Text = "$ 0,00";
-            fieldEfectivoCalculado.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // fieldMontoEfectivoDeclarado
-            // 
-            fieldMontoEfectivoDeclarado.Animated = true;
-            fieldMontoEfectivoDeclarado.AutoRoundedCorners = true;
-            fieldMontoEfectivoDeclarado.BorderColor = Color.Gainsboro;
-            fieldMontoEfectivoDeclarado.BorderRadius = 16;
-            fieldMontoEfectivoDeclarado.Cursor = Cursors.IBeam;
-            fieldMontoEfectivoDeclarado.CustomizableEdges = customizableEdges29;
-            fieldMontoEfectivoDeclarado.DefaultText = "";
-            fieldMontoEfectivoDeclarado.DisabledState.BorderColor = Color.White;
-            fieldMontoEfectivoDeclarado.DisabledState.ForeColor = Color.DimGray;
-            fieldMontoEfectivoDeclarado.DisabledState.PlaceholderForeColor = Color.DimGray;
-            fieldMontoEfectivoDeclarado.Dock = DockStyle.Fill;
-            fieldMontoEfectivoDeclarado.FocusedState.BorderColor = Color.SandyBrown;
-            fieldMontoEfectivoDeclarado.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            fieldMontoEfectivoDeclarado.ForeColor = Color.Black;
-            fieldMontoEfectivoDeclarado.HoverState.BorderColor = Color.SandyBrown;
-            fieldMontoEfectivoDeclarado.IconLeftOffset = new Point(10, 0);
-            fieldMontoEfectivoDeclarado.IconRight = (Image) resources.GetObject("fieldMontoEfectivoDeclarado.IconRight");
-            fieldMontoEfectivoDeclarado.IconRightOffset = new Point(6, 0);
-            fieldMontoEfectivoDeclarado.IconRightSize = new Size(12, 12);
-            fieldMontoEfectivoDeclarado.Location = new Point(356, 5);
-            fieldMontoEfectivoDeclarado.Margin = new Padding(20, 5, 5, 5);
-            fieldMontoEfectivoDeclarado.Name = "fieldMontoEfectivoDeclarado";
-            fieldMontoEfectivoDeclarado.PasswordChar = '\0';
-            fieldMontoEfectivoDeclarado.PlaceholderForeColor = Color.DimGray;
-            fieldMontoEfectivoDeclarado.PlaceholderText = "0,00";
-            fieldMontoEfectivoDeclarado.ReadOnly = true;
-            fieldMontoEfectivoDeclarado.SelectedText = "";
-            fieldMontoEfectivoDeclarado.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            fieldMontoEfectivoDeclarado.Size = new Size(151, 35);
-            fieldMontoEfectivoDeclarado.TabIndex = 39;
-            fieldMontoEfectivoDeclarado.TextAlign = HorizontalAlignment.Right;
-            fieldMontoEfectivoDeclarado.TextOffset = new Point(5, 0);
-            // 
-            // fieldDiferenciaEfectivo
-            // 
-            fieldDiferenciaEfectivo.Dock = DockStyle.Fill;
-            fieldDiferenciaEfectivo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
-            fieldDiferenciaEfectivo.ForeColor = Color.FromArgb(  64,   64,   64);
-            fieldDiferenciaEfectivo.ImeMode = ImeMode.NoControl;
-            fieldDiferenciaEfectivo.Location = new Point(513, 1);
-            fieldDiferenciaEfectivo.Margin = new Padding(1);
-            fieldDiferenciaEfectivo.Name = "fieldDiferenciaEfectivo";
-            fieldDiferenciaEfectivo.Size = new Size(119, 43);
-            fieldDiferenciaEfectivo.TabIndex = 40;
-            fieldDiferenciaEfectivo.Text = "$ 0,00";
-            fieldDiferenciaEfectivo.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // layoutDatosEfectivo
-            // 
-            layoutDatosEfectivo.ColumnCount = 4;
-            layoutDatosEfectivo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
-            layoutDatosEfectivo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            layoutDatosEfectivo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            layoutDatosEfectivo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            layoutDatosEfectivo.Controls.Add(fieldDiferenciaEfectivo, 3, 0);
-            layoutDatosEfectivo.Controls.Add(fieldMontoEfectivoDeclarado, 2, 0);
-            layoutDatosEfectivo.Controls.Add(fieldEfectivoCalculado, 1, 0);
-            layoutDatosEfectivo.Controls.Add(fieldTituloCanalEfectivo, 0, 0);
-            layoutDatosEfectivo.Dock = DockStyle.Top;
-            layoutDatosEfectivo.Location = new Point(0, 55);
-            layoutDatosEfectivo.Margin = new Padding(0);
-            layoutDatosEfectivo.Name = "layoutDatosEfectivo";
-            layoutDatosEfectivo.RowCount = 1;
-            layoutDatosEfectivo.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            layoutDatosEfectivo.Size = new Size(633, 45);
-            layoutDatosEfectivo.TabIndex = 68;
-            // 
             // layoutTotalesDiferencia
             // 
             layoutTotalesDiferencia.ColumnCount = 6;
-            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            layoutTotalesDiferencia.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             layoutTotalesDiferencia.Controls.Add(fieldTotalDeclarado, 3, 0);
             layoutTotalesDiferencia.Controls.Add(fieldTituloTotalDeclarado, 2, 0);
             layoutTotalesDiferencia.Controls.Add(fieldTotalCalculado, 1, 0);
@@ -979,33 +959,47 @@
             layoutTotalesDiferencia.Size = new Size(833, 45);
             layoutTotalesDiferencia.TabIndex = 72;
             // 
-            // fieldTituloTotalDiferencia
+            // fieldTotalDeclarado
             // 
-            fieldTituloTotalDiferencia.Dock = DockStyle.Fill;
-            fieldTituloTotalDiferencia.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point,  0);
-            fieldTituloTotalDiferencia.ForeColor = Color.Firebrick;
-            fieldTituloTotalDiferencia.ImeMode = ImeMode.NoControl;
-            fieldTituloTotalDiferencia.Location = new Point(553, 1);
-            fieldTituloTotalDiferencia.Margin = new Padding(1);
-            fieldTituloTotalDiferencia.Name = "fieldTituloTotalDiferencia";
-            fieldTituloTotalDiferencia.Size = new Size(136, 43);
-            fieldTituloTotalDiferencia.TabIndex = 67;
-            fieldTituloTotalDiferencia.Text = "DIFERENCIA :";
-            fieldTituloTotalDiferencia.TextAlign = ContentAlignment.MiddleRight;
+            fieldTotalDeclarado.Dock = DockStyle.Fill;
+            fieldTotalDeclarado.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point,  0);
+            fieldTotalDeclarado.ForeColor = Color.FromArgb(  64,   64,   64);
+            fieldTotalDeclarado.ImeMode = ImeMode.NoControl;
+            fieldTotalDeclarado.Location = new Point(398, 1);
+            fieldTotalDeclarado.Margin = new Padding(1);
+            fieldTotalDeclarado.Name = "fieldTotalDeclarado";
+            fieldTotalDeclarado.Size = new Size(155, 43);
+            fieldTotalDeclarado.TabIndex = 72;
+            fieldTotalDeclarado.Text = "$ 0.00";
+            fieldTotalDeclarado.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // fieldTotalDiferencia
+            // fieldTituloTotalDeclarado
             // 
-            fieldTotalDiferencia.Dock = DockStyle.Fill;
-            fieldTotalDiferencia.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point,  0);
-            fieldTotalDiferencia.ForeColor = Color.Firebrick;
-            fieldTotalDiferencia.ImeMode = ImeMode.NoControl;
-            fieldTotalDiferencia.Location = new Point(691, 1);
-            fieldTotalDiferencia.Margin = new Padding(1);
-            fieldTotalDiferencia.Name = "fieldTotalDiferencia";
-            fieldTotalDiferencia.Size = new Size(141, 43);
-            fieldTotalDiferencia.TabIndex = 68;
-            fieldTotalDiferencia.Text = "$ 0,00";
-            fieldTotalDiferencia.TextAlign = ContentAlignment.MiddleRight;
+            fieldTituloTotalDeclarado.Dock = DockStyle.Fill;
+            fieldTituloTotalDeclarado.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point,  0);
+            fieldTituloTotalDeclarado.ForeColor = Color.DimGray;
+            fieldTituloTotalDeclarado.ImeMode = ImeMode.NoControl;
+            fieldTituloTotalDeclarado.Location = new Point(278, 1);
+            fieldTituloTotalDeclarado.Margin = new Padding(1);
+            fieldTituloTotalDeclarado.Name = "fieldTituloTotalDeclarado";
+            fieldTituloTotalDeclarado.Size = new Size(118, 43);
+            fieldTituloTotalDeclarado.TabIndex = 71;
+            fieldTituloTotalDeclarado.Text = "DECLARADO :";
+            fieldTituloTotalDeclarado.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // fieldTotalCalculado
+            // 
+            fieldTotalCalculado.Dock = DockStyle.Fill;
+            fieldTotalCalculado.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point,  0);
+            fieldTotalCalculado.ForeColor = Color.FromArgb(  64,   64,   64);
+            fieldTotalCalculado.ImeMode = ImeMode.NoControl;
+            fieldTotalCalculado.Location = new Point(121, 1);
+            fieldTotalCalculado.Margin = new Padding(1);
+            fieldTotalCalculado.Name = "fieldTotalCalculado";
+            fieldTotalCalculado.Size = new Size(155, 43);
+            fieldTotalCalculado.TabIndex = 70;
+            fieldTotalCalculado.Text = "$ 0.00";
+            fieldTotalCalculado.TextAlign = ContentAlignment.MiddleRight;
             // 
             // fieldTituloTotalCalculado
             // 
@@ -1016,63 +1010,42 @@
             fieldTituloTotalCalculado.Location = new Point(1, 1);
             fieldTituloTotalCalculado.Margin = new Padding(1);
             fieldTituloTotalCalculado.Name = "fieldTituloTotalCalculado";
-            fieldTituloTotalCalculado.Size = new Size(136, 43);
+            fieldTituloTotalCalculado.Size = new Size(118, 43);
             fieldTituloTotalCalculado.TabIndex = 69;
             fieldTituloTotalCalculado.Text = "CALCULADO :";
             fieldTituloTotalCalculado.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // fieldTotalCalculado
+            // fieldTotalDiferencia
             // 
-            fieldTotalCalculado.Dock = DockStyle.Fill;
-            fieldTotalCalculado.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point,  0);
-            fieldTotalCalculado.ForeColor = Color.FromArgb(  64,   64,   64);
-            fieldTotalCalculado.ImeMode = ImeMode.NoControl;
-            fieldTotalCalculado.Location = new Point(139, 1);
-            fieldTotalCalculado.Margin = new Padding(1);
-            fieldTotalCalculado.Name = "fieldTotalCalculado";
-            fieldTotalCalculado.Size = new Size(136, 43);
-            fieldTotalCalculado.TabIndex = 70;
-            fieldTotalCalculado.Text = "$ 0.00";
-            fieldTotalCalculado.TextAlign = ContentAlignment.MiddleRight;
+            fieldTotalDiferencia.Dock = DockStyle.Fill;
+            fieldTotalDiferencia.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point,  0);
+            fieldTotalDiferencia.ForeColor = Color.Firebrick;
+            fieldTotalDiferencia.ImeMode = ImeMode.NoControl;
+            fieldTotalDiferencia.Location = new Point(675, 1);
+            fieldTotalDiferencia.Margin = new Padding(1);
+            fieldTotalDiferencia.Name = "fieldTotalDiferencia";
+            fieldTotalDiferencia.Size = new Size(157, 43);
+            fieldTotalDiferencia.TabIndex = 68;
+            fieldTotalDiferencia.Text = "$ 0,00";
+            fieldTotalDiferencia.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // fieldTituloTotalDeclarado
+            // fieldTituloTotalDiferencia
             // 
-            fieldTituloTotalDeclarado.Dock = DockStyle.Fill;
-            fieldTituloTotalDeclarado.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point,  0);
-            fieldTituloTotalDeclarado.ForeColor = Color.DimGray;
-            fieldTituloTotalDeclarado.ImeMode = ImeMode.NoControl;
-            fieldTituloTotalDeclarado.Location = new Point(277, 1);
-            fieldTituloTotalDeclarado.Margin = new Padding(1);
-            fieldTituloTotalDeclarado.Name = "fieldTituloTotalDeclarado";
-            fieldTituloTotalDeclarado.Size = new Size(136, 43);
-            fieldTituloTotalDeclarado.TabIndex = 71;
-            fieldTituloTotalDeclarado.Text = "DECLARADO :";
-            fieldTituloTotalDeclarado.TextAlign = ContentAlignment.MiddleRight;
+            fieldTituloTotalDiferencia.Dock = DockStyle.Fill;
+            fieldTituloTotalDiferencia.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point,  0);
+            fieldTituloTotalDiferencia.ForeColor = Color.Firebrick;
+            fieldTituloTotalDiferencia.ImeMode = ImeMode.NoControl;
+            fieldTituloTotalDiferencia.Location = new Point(555, 1);
+            fieldTituloTotalDiferencia.Margin = new Padding(1);
+            fieldTituloTotalDiferencia.Name = "fieldTituloTotalDiferencia";
+            fieldTituloTotalDiferencia.Size = new Size(118, 43);
+            fieldTituloTotalDiferencia.TabIndex = 67;
+            fieldTituloTotalDiferencia.Text = "DIFERENCIA :";
+            fieldTituloTotalDiferencia.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // fieldTotalDeclarado
+            // fieldDescripcionCategoriaProducto
             // 
-            fieldTotalDeclarado.Dock = DockStyle.Fill;
-            fieldTotalDeclarado.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point,  0);
-            fieldTotalDeclarado.ForeColor = Color.FromArgb(  64,   64,   64);
-            fieldTotalDeclarado.ImeMode = ImeMode.NoControl;
-            fieldTotalDeclarado.Location = new Point(415, 1);
-            fieldTotalDeclarado.Margin = new Padding(1);
-            fieldTotalDeclarado.Name = "fieldTotalDeclarado";
-            fieldTotalDeclarado.Size = new Size(136, 43);
-            fieldTotalDeclarado.TabIndex = 72;
-            fieldTotalDeclarado.Text = "$ 0.00";
-            fieldTotalDeclarado.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // guna2Separator1
-            // 
-            guna2Separator1.Dock = DockStyle.Fill;
-            guna2Separator1.FillColor = Color.Gainsboro;
-            guna2Separator1.FillThickness = 3;
-            guna2Separator1.Location = new Point(3, 328);
-            guna2Separator1.Margin = new Padding(3, 3, 0, 3);
-            guna2Separator1.Name = "guna2Separator1";
-            guna2Separator1.Size = new Size(630, 4);
-            guna2Separator1.TabIndex = 69;
+            fieldDescripcionCategoriaProducto.BackColor = Color.PeachPuff;
             // 
             // VistaCierreTurno
             // 
@@ -1092,6 +1065,8 @@
             layoutDistribucion2.ResumeLayout(false);
             layoutDatos1.ResumeLayout(false);
             layoutDistribucionConteoDenominaciones.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            layoutTotalesDenominacion.ResumeLayout(false);
             layoutDistribucionConciliacion.ResumeLayout(false);
             panelAdvertencia.ResumeLayout(false);
             layoutPanelAdvertencia.ResumeLayout(false);
@@ -1103,8 +1078,6 @@
             layoutDatosTurno.ResumeLayout(false);
             layoutDistribucionDatosTurno.ResumeLayout(false);
             layoutBotones.ResumeLayout(false);
-            layoutTotalesDenominacion.ResumeLayout(false);
-            layoutDatosEfectivo.ResumeLayout(false);
             layoutTotalesDiferencia.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -1162,12 +1135,6 @@
         private Label fieldTituloCalculado;
         private Label fieldTituloMoneda;
         private TableLayoutPanel layoutTotalesDenominacion;
-        private FlowLayoutPanel panelDenominaciones;
-        private TableLayoutPanel layoutDatosEfectivo;
-        private Label fieldDiferenciaEfectivo;
-        private Guna.UI2.WinForms.Guna2TextBox fieldMontoEfectivoDeclarado;
-        private Label fieldEfectivoCalculado;
-        private Label fieldTituloCanalEfectivo;
         private TableLayoutPanel layoutTotalesDiferencia;
         private Label fieldTotalDeclarado;
         private Label fieldTituloTotalDeclarado;
@@ -1176,5 +1143,12 @@
         private Label fieldTotalDiferencia;
         private Label fieldTituloTotalDiferencia;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label fieldTituloMonedaConteoFisico;
+        private Guna.UI2.WinForms.Guna2Separator separador6;
+        private Panel panelConciliacion;
+        private Guna.UI2.WinForms.Guna2VSeparator guna2vSeparator1;
+        private FlowLayoutPanel panelConteoDenominaciones;
+        private FlowLayoutPanel panelMonedasDenominaciones;
     }
 }

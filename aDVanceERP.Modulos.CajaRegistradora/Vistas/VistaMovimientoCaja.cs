@@ -1,5 +1,7 @@
-﻿using aDVanceERP.Core.Modelos.Modulos.Caja;
+﻿using aDVanceERP.Core.Infraestructura.Extensiones.Comun;
+using aDVanceERP.Core.Modelos.Modulos.Caja;
 using aDVanceERP.Core.Modelos.Modulos.Comun;
+using aDVanceERP.Core.Modelos.Modulos.Monedas;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 
 using System.Globalization;
@@ -68,11 +70,24 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
 
         public TipoMovimientoCajaEnum Tipo { get; set; }
 
-        public CanalPagoEnum CanalPago { get; set; }
+
+
+        public CanalPagoEnum CanalPago {
+            get => (CanalPagoEnum) fieldCanalPago.SelectedIndex;
+            set => fieldCanalPago.SelectedItem = value.ObtenerNombreDescripcion();
+        }
 
         public decimal Monto {
             get => decimal.TryParse(fieldMonto.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out var monto) ? monto : 0m;
             set => fieldMonto.Text = value.ToString("N2", CultureInfo.InvariantCulture);
+        }
+
+        public Moneda? MonedaPago {
+            get => fieldMonedaPago.SelectedItem as Moneda;
+            set {
+                fieldMonedaPago.SelectedItem = value;
+                CambioMonedaPago?.Invoke(this, value?.Id ?? 0);
+            }
         }
 
         public string? Descripcion {
@@ -83,6 +98,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         public event EventHandler? RegistrarEntidad;
         public event EventHandler? EditarEntidad;
         public event EventHandler? EliminarEntidad;
+        public event EventHandler<long>? CambioMonedaPago;
 
         public void Inicializar() {
             fieldTipoMovimiento.CheckedChanged += delegate {
@@ -101,9 +117,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
                 Tipo = fieldTipoMovimiento.Checked
                     ? TipoMovimientoCajaEnum.EntradaManual
                     : TipoMovimientoCajaEnum.SalidaManual;
-            };
-            fieldCanal.SelectedIndexChanged += delegate {
-                CanalPago = (CanalPagoEnum) fieldCanal.SelectedIndex;
             };
             btnRegistrarActualizar.Click += delegate (object? sender, EventArgs args) {
                 RegistrarEntidad?.Invoke(sender, args);
@@ -124,10 +137,27 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             IdAlmacen = 0L;
             NombreAlmacen = string.Empty;
             fieldTipoMovimiento.Checked = true;
+            CanalPago = CanalPagoEnum.Efectivo;
+            Descripcion = string.Empty;
+
+            fieldMonto.Text = string.Empty;
+            fieldMonedaPago.SelectedIndex = 0;
         }
 
         public void Cerrar() {
             Dispose();
+        }
+
+        public void CargarMetodosPago(string[] metodosPago) {
+            fieldCanalPago.Items.Clear();
+            fieldCanalPago.Items.AddRange([.. metodosPago.SkipLast(2)]);
+            fieldCanalPago.SelectedIndex = 0;
+        }
+
+        public void CargarMonedasPago(Moneda[] monedas) {
+            fieldMonedaPago.Items.Clear();
+            fieldMonedaPago.Items.AddRange(monedas);
+            fieldMonedaPago.SelectedItem = monedas.Length > 0 ? 0 : -1;
         }
     }
 }

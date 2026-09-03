@@ -1,5 +1,6 @@
 ﻿using aDVanceERP.Core.Modelos.Modulos.Caja;
 using aDVanceERP.Core.Modelos.Modulos.Comun;
+using aDVanceERP.Core.Modelos.Modulos.Monedas;
 using aDVanceERP.Core.Vistas.Comun.Interfaces;
 
 namespace aDVanceERP.Modulos.CajaRegistradora.Interfaces {
@@ -11,5 +12,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Interfaces {
         string? DescripcionFactura { get; set; }
         string Operador { get; set; }
         decimal Monto { get; set; }
+        Moneda? Moneda { get; set; }
     }
 }

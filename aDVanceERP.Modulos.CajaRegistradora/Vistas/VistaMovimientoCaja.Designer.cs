@@ -24,21 +24,21 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VistaMovimientoCaja));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             formatoBase = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             layoutVista = new TableLayoutPanel();
             layoutTitulo = new TableLayoutPanel();
@@ -56,9 +56,9 @@
             fieldTituloTipoMovimiento = new Label();
             layoutDatos1 = new TableLayoutPanel();
             fieldTipoMovimiento = new Guna.UI2.WinForms.Guna2Button();
-            fieldCanal = new Guna.UI2.WinForms.Guna2ComboBox();
+            fieldCanalPago = new Guna.UI2.WinForms.Guna2ComboBox();
             layoutDistMontoMoneda1 = new TableLayoutPanel();
-            fieldMonedaMonto = new Guna.UI2.WinForms.Guna2ComboBox();
+            fieldMonedaPago = new Guna.UI2.WinForms.Guna2ComboBox();
             fieldMonto = new Guna.UI2.WinForms.Guna2TextBox();
             fieldTituloObservaciones = new Label();
             fieldIcono = new PictureBox();
@@ -176,7 +176,7 @@
             btnSalir.BorderColor = Color.Gainsboro;
             btnSalir.BorderRadius = 18;
             btnSalir.BorderThickness = 1;
-            btnSalir.CustomizableEdges = customizableEdges1;
+            btnSalir.CustomizableEdges = customizableEdges15;
             btnSalir.Dock = DockStyle.Fill;
             btnSalir.FillColor = Color.White;
             btnSalir.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
@@ -186,7 +186,7 @@
             btnSalir.HoverState.ForeColor = Color.Black;
             btnSalir.Location = new Point(1116, 3);
             btnSalir.Name = "btnSalir";
-            btnSalir.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnSalir.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnSalir.Size = new Size(164, 39);
             btnSalir.TabIndex = 14;
             btnSalir.Text = "Salir";
@@ -195,14 +195,14 @@
             // 
             btnRegistrarActualizar.Animated = true;
             btnRegistrarActualizar.BorderRadius = 18;
-            btnRegistrarActualizar.CustomizableEdges = customizableEdges3;
+            btnRegistrarActualizar.CustomizableEdges = customizableEdges17;
             btnRegistrarActualizar.Dock = DockStyle.Fill;
             btnRegistrarActualizar.FillColor = Color.PeachPuff;
             btnRegistrarActualizar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             btnRegistrarActualizar.ForeColor = Color.Black;
             btnRegistrarActualizar.Location = new Point(886, 3);
             btnRegistrarActualizar.Name = "btnRegistrarActualizar";
-            btnRegistrarActualizar.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnRegistrarActualizar.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnRegistrarActualizar.Size = new Size(224, 39);
             btnRegistrarActualizar.TabIndex = 15;
             btnRegistrarActualizar.Text = "Abrir turno";
@@ -249,7 +249,7 @@
             fieldDescripcion.BorderColor = Color.Gainsboro;
             fieldDescripcion.BorderRadius = 16;
             fieldDescripcion.Cursor = Cursors.IBeam;
-            fieldDescripcion.CustomizableEdges = customizableEdges5;
+            fieldDescripcion.CustomizableEdges = customizableEdges19;
             fieldDescripcion.DefaultText = "";
             fieldDescripcion.DisabledState.BorderColor = Color.White;
             fieldDescripcion.DisabledState.ForeColor = Color.DimGray;
@@ -269,7 +269,7 @@
             fieldDescripcion.PlaceholderForeColor = Color.DimGray;
             fieldDescripcion.PlaceholderText = "Descripción...";
             fieldDescripcion.SelectedText = "";
-            fieldDescripcion.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            fieldDescripcion.ShadowDecoration.CustomizableEdges = customizableEdges20;
             fieldDescripcion.Size = new Size(1276, 80);
             fieldDescripcion.TabIndex = 48;
             fieldDescripcion.TextOffset = new Point(5, 0);
@@ -344,7 +344,7 @@
             layoutDatos1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
             layoutDatos1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             layoutDatos1.Controls.Add(fieldTipoMovimiento, 0, 0);
-            layoutDatos1.Controls.Add(fieldCanal, 2, 0);
+            layoutDatos1.Controls.Add(fieldCanalPago, 2, 0);
             layoutDatos1.Controls.Add(layoutDistMontoMoneda1, 1, 0);
             layoutDatos1.Dock = DockStyle.Fill;
             layoutDatos1.Location = new Point(0, 25);
@@ -367,7 +367,7 @@
             fieldTipoMovimiento.CheckedState.BorderColor = Color.FromArgb(  129,   199,   132);
             fieldTipoMovimiento.CheckedState.FillColor = Color.FromArgb(  232,   245,   233);
             fieldTipoMovimiento.CheckedState.ForeColor = Color.FromArgb(  46,   125,   50);
-            fieldTipoMovimiento.CustomizableEdges = customizableEdges7;
+            fieldTipoMovimiento.CustomizableEdges = customizableEdges21;
             fieldTipoMovimiento.Dock = DockStyle.Fill;
             fieldTipoMovimiento.FillColor = Color.WhiteSmoke;
             fieldTipoMovimiento.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
@@ -375,42 +375,42 @@
             fieldTipoMovimiento.Location = new Point(5, 5);
             fieldTipoMovimiento.Margin = new Padding(5);
             fieldTipoMovimiento.Name = "fieldTipoMovimiento";
-            fieldTipoMovimiento.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            fieldTipoMovimiento.ShadowDecoration.CustomizableEdges = customizableEdges22;
             fieldTipoMovimiento.Size = new Size(240, 35);
             fieldTipoMovimiento.TabIndex = 41;
             fieldTipoMovimiento.Text = "↓  Entrada manual";
             // 
-            // fieldCanal
+            // fieldCanalPago
             // 
-            fieldCanal.Animated = true;
-            fieldCanal.BackColor = Color.Transparent;
-            fieldCanal.BorderColor = Color.Gainsboro;
-            fieldCanal.BorderRadius = 16;
-            fieldCanal.CustomizableEdges = customizableEdges9;
-            fieldCanal.Dock = DockStyle.Fill;
-            fieldCanal.DrawMode = DrawMode.OwnerDrawFixed;
-            fieldCanal.DropDownStyle = ComboBoxStyle.DropDownList;
-            fieldCanal.FocusedColor = Color.Gainsboro;
-            fieldCanal.FocusedState.BorderColor = Color.Gainsboro;
-            fieldCanal.Font = new Font("Segoe UI", 11.25F);
-            fieldCanal.ForeColor = Color.Black;
-            fieldCanal.ItemHeight = 29;
-            fieldCanal.Items.AddRange(new object[] { "Efectivo", "Transferencia" });
-            fieldCanal.Location = new Point(505, 5);
-            fieldCanal.Margin = new Padding(5);
-            fieldCanal.Name = "fieldCanal";
-            fieldCanal.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            fieldCanal.Size = new Size(190, 35);
-            fieldCanal.StartIndex = 0;
-            fieldCanal.TabIndex = 40;
-            fieldCanal.TextOffset = new Point(10, 0);
+            fieldCanalPago.Animated = true;
+            fieldCanalPago.BackColor = Color.Transparent;
+            fieldCanalPago.BorderColor = Color.Gainsboro;
+            fieldCanalPago.BorderRadius = 16;
+            fieldCanalPago.CustomizableEdges = customizableEdges23;
+            fieldCanalPago.Dock = DockStyle.Fill;
+            fieldCanalPago.DrawMode = DrawMode.OwnerDrawFixed;
+            fieldCanalPago.DropDownStyle = ComboBoxStyle.DropDownList;
+            fieldCanalPago.FocusedColor = Color.Gainsboro;
+            fieldCanalPago.FocusedState.BorderColor = Color.Gainsboro;
+            fieldCanalPago.Font = new Font("Segoe UI", 11.25F);
+            fieldCanalPago.ForeColor = Color.Black;
+            fieldCanalPago.ItemHeight = 29;
+            fieldCanalPago.Items.AddRange(new object[] { "Efectivo", "Transferencia" });
+            fieldCanalPago.Location = new Point(505, 5);
+            fieldCanalPago.Margin = new Padding(5);
+            fieldCanalPago.Name = "fieldCanalPago";
+            fieldCanalPago.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            fieldCanalPago.Size = new Size(190, 35);
+            fieldCanalPago.StartIndex = 0;
+            fieldCanalPago.TabIndex = 40;
+            fieldCanalPago.TextOffset = new Point(10, 0);
             // 
             // layoutDistMontoMoneda1
             // 
             layoutDistMontoMoneda1.ColumnCount = 2;
             layoutDistMontoMoneda1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             layoutDistMontoMoneda1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 85F));
-            layoutDistMontoMoneda1.Controls.Add(fieldMonedaMonto, 1, 0);
+            layoutDistMontoMoneda1.Controls.Add(fieldMonedaPago, 1, 0);
             layoutDistMontoMoneda1.Controls.Add(fieldMonto, 0, 0);
             layoutDistMontoMoneda1.Dock = DockStyle.Fill;
             layoutDistMontoMoneda1.Location = new Point(250, 0);
@@ -421,34 +421,34 @@
             layoutDistMontoMoneda1.Size = new Size(250, 45);
             layoutDistMontoMoneda1.TabIndex = 38;
             // 
-            // fieldMonedaMonto
+            // fieldMonedaPago
             // 
-            fieldMonedaMonto.Animated = true;
-            fieldMonedaMonto.AutoRoundedCorners = true;
-            fieldMonedaMonto.BackColor = Color.Transparent;
-            fieldMonedaMonto.BorderColor = Color.Gainsboro;
-            fieldMonedaMonto.BorderRadius = 16;
-            customizableEdges11.BottomLeft = false;
-            customizableEdges11.TopLeft = false;
-            fieldMonedaMonto.CustomizableEdges = customizableEdges11;
-            fieldMonedaMonto.Dock = DockStyle.Fill;
-            fieldMonedaMonto.DrawMode = DrawMode.OwnerDrawFixed;
-            fieldMonedaMonto.DropDownStyle = ComboBoxStyle.DropDownList;
-            fieldMonedaMonto.FillColor = Color.Gainsboro;
-            fieldMonedaMonto.FocusedColor = Color.Gainsboro;
-            fieldMonedaMonto.FocusedState.BorderColor = Color.Gainsboro;
-            fieldMonedaMonto.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point,  0);
-            fieldMonedaMonto.ForeColor = Color.FromArgb(  64,   64,   64);
-            fieldMonedaMonto.ItemHeight = 29;
-            fieldMonedaMonto.Items.AddRange(new object[] { "CUP", "USD", "MLC" });
-            fieldMonedaMonto.Location = new Point(165, 5);
-            fieldMonedaMonto.Margin = new Padding(0, 5, 5, 5);
-            fieldMonedaMonto.Name = "fieldMonedaMonto";
-            fieldMonedaMonto.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            fieldMonedaMonto.Size = new Size(80, 35);
-            fieldMonedaMonto.StartIndex = 0;
-            fieldMonedaMonto.TabIndex = 40;
-            fieldMonedaMonto.TextOffset = new Point(10, 0);
+            fieldMonedaPago.Animated = true;
+            fieldMonedaPago.AutoRoundedCorners = true;
+            fieldMonedaPago.BackColor = Color.Transparent;
+            fieldMonedaPago.BorderColor = Color.Gainsboro;
+            fieldMonedaPago.BorderRadius = 16;
+            customizableEdges25.BottomLeft = false;
+            customizableEdges25.TopLeft = false;
+            fieldMonedaPago.CustomizableEdges = customizableEdges25;
+            fieldMonedaPago.Dock = DockStyle.Fill;
+            fieldMonedaPago.DrawMode = DrawMode.OwnerDrawFixed;
+            fieldMonedaPago.DropDownStyle = ComboBoxStyle.DropDownList;
+            fieldMonedaPago.FillColor = Color.Gainsboro;
+            fieldMonedaPago.FocusedColor = Color.Gainsboro;
+            fieldMonedaPago.FocusedState.BorderColor = Color.Gainsboro;
+            fieldMonedaPago.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point,  0);
+            fieldMonedaPago.ForeColor = Color.FromArgb(  64,   64,   64);
+            fieldMonedaPago.ItemHeight = 29;
+            fieldMonedaPago.Items.AddRange(new object[] { "CUP", "USD", "MLC" });
+            fieldMonedaPago.Location = new Point(165, 5);
+            fieldMonedaPago.Margin = new Padding(0, 5, 5, 5);
+            fieldMonedaPago.Name = "fieldMonedaPago";
+            fieldMonedaPago.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            fieldMonedaPago.Size = new Size(80, 35);
+            fieldMonedaPago.StartIndex = 0;
+            fieldMonedaPago.TabIndex = 40;
+            fieldMonedaPago.TextOffset = new Point(10, 0);
             // 
             // fieldMonto
             // 
@@ -457,9 +457,9 @@
             fieldMonto.BorderColor = Color.Gainsboro;
             fieldMonto.BorderRadius = 16;
             fieldMonto.Cursor = Cursors.IBeam;
-            customizableEdges13.BottomRight = false;
-            customizableEdges13.TopRight = false;
-            fieldMonto.CustomizableEdges = customizableEdges13;
+            customizableEdges27.BottomRight = false;
+            customizableEdges27.TopRight = false;
+            fieldMonto.CustomizableEdges = customizableEdges27;
             fieldMonto.DefaultText = "";
             fieldMonto.DisabledState.BorderColor = Color.White;
             fieldMonto.DisabledState.ForeColor = Color.DimGray;
@@ -481,7 +481,7 @@
             fieldMonto.PlaceholderForeColor = Color.DimGray;
             fieldMonto.PlaceholderText = "0.00";
             fieldMonto.SelectedText = "";
-            fieldMonto.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            fieldMonto.ShadowDecoration.CustomizableEdges = customizableEdges28;
             fieldMonto.Size = new Size(160, 35);
             fieldMonto.TabIndex = 39;
             fieldMonto.TextAlign = HorizontalAlignment.Right;
@@ -558,8 +558,8 @@
         private Label fieldTituloTipoMovimiento;
         private TableLayoutPanel layoutDistMontoMoneda1;
         private Guna.UI2.WinForms.Guna2TextBox fieldMonto;
-        private Guna.UI2.WinForms.Guna2ComboBox fieldMonedaMonto;
-        private Guna.UI2.WinForms.Guna2ComboBox fieldCanal;
+        private Guna.UI2.WinForms.Guna2ComboBox fieldMonedaPago;
+        private Guna.UI2.WinForms.Guna2ComboBox fieldCanalPago;
         private Label fieldTituloObservaciones;
         private Guna.UI2.WinForms.Guna2Button fieldTipoMovimiento;
     }

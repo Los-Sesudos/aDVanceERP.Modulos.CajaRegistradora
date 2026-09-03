@@ -38,6 +38,9 @@
     <Compile Update="Vistas\VistaTuplaDetalleTurno.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Vistas\VistaTuplaConciliacionMoneda.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Vistas\VistaTuplaTurno.cs">
       <SubType>Form</SubType>
     </Compile>

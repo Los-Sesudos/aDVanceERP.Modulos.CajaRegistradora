@@ -1,11 +1,14 @@
 ﻿using aDVanceERP.Core.Eventos.Comun;
 using aDVanceERP.Core.Eventos.Modulos.Caja;
+using aDVanceERP.Core.Infraestructura.Extensiones.Comun;
 using aDVanceERP.Core.Infraestructura.Globales;
 using aDVanceERP.Core.Modelos.Comun;
 using aDVanceERP.Core.Modelos.Modulos.Caja;
+using aDVanceERP.Core.Modelos.Modulos.Comun;
 using aDVanceERP.Core.Modelos.Modulos.Inventario;
 using aDVanceERP.Core.Presentadores.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
+using aDVanceERP.Core.Repositorios.Modulos.Monedas;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 
 namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
@@ -20,7 +23,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
             Vista.ModoEdicion = false;
             Vista.Restaurar();
 
-            CargarDatosComunes(e.Turno, e.Almacen);
+            CargarDatosComunes(e.Turno!, e.Almacen);
 
             Vista.Mostrar();
         }
@@ -35,9 +38,14 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
 
             _idTurno = turno.Id;
 
+            var metodosPago = EnumExt.ObtenerNombresDescripciones<CanalPagoEnum>().Select(nd => nd.Nombre);
+
             Vista.Codigo = turno.Codigo;
             Vista.IdAlmacen = almacen!.Id;
             Vista.NombreAlmacen = almacen!.Nombre;
+            Vista.CargarMetodosPago([.. metodosPago]);
+            Vista.CargarMonedasPago([.. RepoMoneda.Instancia.ObtenerActivas()]);
+            Vista.MonedaPago = RepoMoneda.Instancia.ObtenerMonedaBase();
         }
 
         protected override CajaMovimiento? ObtenerEntidadDesdeVista() {
@@ -52,6 +60,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
                 IdTurno = _idTurno,
                 Tipo = Vista.Tipo,
                 CanalPago = Vista.CanalPago,
+                IdMoneda = Vista.MonedaPago?.Id ?? 0,
                 IdVenta = null,
                 Monto = montoFinal,
                 Descripcion = Vista.Descripcion,

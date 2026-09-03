@@ -1,6 +1,7 @@
 ﻿using aDVanceERP.Core.Infraestructura.Extensiones.Comun;
 using aDVanceERP.Core.Modelos.Modulos.Caja;
 using aDVanceERP.Core.Modelos.Modulos.Comun;
+using aDVanceERP.Core.Modelos.Modulos.Monedas;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 
 namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
@@ -88,15 +89,18 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             get => fieldOperador.Text;
             set => fieldOperador.Text = value;
         }
+
+        public Moneda? Moneda { get; set; }
+
         public decimal Monto {
             get => _monto;
             set {
                 _monto = value;
                 fieldMonto.Text = value > 0
-                    ? $"+ $ {value:N2}"
+                    ? $"+ {Moneda?.Simbolo} {value:N2}"
                     : value < 0
-                        ? $"- $ {(value * -1):N2}"
-                        : $"$ {value:N2}";
+                        ? $"- {Moneda?.Simbolo} {(value * -1):N2}"
+                        : $"{Moneda?.Simbolo} {value:N2}";
             }
         }
 
