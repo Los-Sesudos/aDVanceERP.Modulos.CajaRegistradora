@@ -3,6 +3,7 @@ using aDVanceERP.Core.Infraestructura.Globales;
 using aDVanceERP.Core.Modelos.Modulos.Caja;
 using aDVanceERP.Core.Repositorios.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
+using aDVanceERP.Core.Repositorios.Modulos.Monedas;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 using aDVanceERP.Modulos.CajaRegistradora.Properties;
 
@@ -148,7 +149,11 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
 
         public void CargarDatosGeneralesTurno(CajaTurno turno) {
             var (colorFondo, colorFuente) = ObtenerColorEstado(turno.Estado);
-            var totalesCalculados = RepoCajaMovimiento.Instancia.ObtenerTotalesPorCanal(turno.Id);
+            var totalesPorMoneda = RepoCajaMovimiento.Instancia.ObtenerTotalesPorCanalYMoneda(turno.Id);
+            var monedaBase = RepoMoneda.Instancia.ObtenerMonedaBase();
+            var repoTasaCambio = RepoTasaCambio.Instancia;
+            var totalesBase = totalesPorMoneda.FirstOrDefault(t => t.IdMoneda == monedaBase.Id) ?? new TotalesCierreCaja { IdMoneda = monedaBase.Id };
+            var totalGeneralBase = totalesPorMoneda.Sum(t => repoTasaCambio.Convertir(t.TotalEfectivo + t.TotalTransferencias, t.IdMoneda, monedaBase.Id));
 
             fieldSubtitulo.Text = turno.Codigo;
             fieldCodigo.Text = turno.Codigo;
@@ -158,18 +163,18 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldEstado.Text = turno.Estado.ObtenerNombreDescripcion().Nombre;
             fieldFechaHoraApertura.Text = turno.FechaApertura.ToString("dd/MM/yyyy HH:mm");
             fieldFechaHoraCierre.Text = turno.FechaCierre.HasValue ? turno.FechaCierre.Value.ToString("dd/MM/yyyy HH:mm") : "N/A";
-            fieldEfectivoCalculado.Text = totalesCalculados.TotalEfectivo.ToString("N2", CultureInfo.InvariantCulture);
+            fieldEfectivoCalculado.Text = totalesBase.TotalEfectivo.ToString("N2", CultureInfo.InvariantCulture);
             fieldDiferenciaEfectivo.Text = turno.DiferenciaEfectivo.HasValue ? turno.DiferenciaEfectivo.Value.ToString("N2", CultureInfo.InvariantCulture) : "N/A";
-            
+
+            fieldTituloTotalEfectivo.Text = $"TOTAL EFECTIVO ({monedaBase.Codigo})";
             fieldTotalEfectivo.Text = turno.MontoEfectivoCalculado.HasValue && turno.DiferenciaEfectivo.HasValue
                 ? (turno.MontoEfectivoCalculado.Value + turno.DiferenciaEfectivo.Value).ToString("N2", CultureInfo.InvariantCulture)
-                : totalesCalculados.TotalEfectivo.ToString("N2", CultureInfo.InvariantCulture);
+                : totalesBase.TotalEfectivo.ToString("N2", CultureInfo.InvariantCulture);
+            fieldTituloTotalTransferencias.Text = $"TOTAL TRANSFERENCIAS ({monedaBase.Codigo})";
             fieldTotalTransferencias.Text = turno.MontoTransferenciasCalculado.HasValue && turno.DiferenciaTransferencias.HasValue
                 ? (turno.MontoTransferenciasCalculado.Value + turno.DiferenciaTransferencias.Value).ToString("N2", CultureInfo.InvariantCulture)
-                : totalesCalculados.TotalTransferencias.ToString("N2", CultureInfo.InvariantCulture);
-            fieldTotalGeneral.Text = turno.MontoEfectivoCalculado.HasValue && turno.DiferenciaEfectivo.HasValue && turno.MontoTransferenciasCalculado.HasValue && turno.DiferenciaTransferencias.HasValue
-                ? (turno.MontoEfectivoCalculado.Value + turno.DiferenciaEfectivo.Value + turno.MontoTransferenciasCalculado.Value + turno.DiferenciaTransferencias.Value).ToString("N2", CultureInfo.InvariantCulture)
-                : (totalesCalculados.TotalEfectivo + totalesCalculados.TotalTransferencias).ToString("N2", CultureInfo.InvariantCulture);
+                : totalesBase.TotalTransferencias.ToString("N2", CultureInfo.InvariantCulture);
+            fieldTotalGeneral.Text = $"{RepoMoneda.Instancia.ObtenerMonedaBase().Simbolo} {totalGeneralBase:N2}";
         }
 
         private (Color colorFondo, Color colorFuente) ObtenerColorEstado(EstadoCajaTurnoEnum estado) {

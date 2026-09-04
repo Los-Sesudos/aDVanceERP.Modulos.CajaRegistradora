@@ -2,7 +2,6 @@
 using aDVanceERP.Core.Eventos.Modulos.Caja;
 using aDVanceERP.Core.Modelos.Comun.Interfaces;
 using aDVanceERP.Core.Modelos.Modulos.Caja;
-using aDVanceERP.Core.Modelos.Modulos.Monedas;
 using aDVanceERP.Core.Presentadores.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
 using aDVanceERP.Core.Repositorios.Modulos.Monedas;

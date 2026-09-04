@@ -6,8 +6,6 @@ using aDVanceERP.Core.Repositorios.Modulos.Caja;
 using aDVanceERP.Core.Repositorios.Modulos.Monedas;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 
-using Google.Protobuf;
-
 using Guna.UI2.WinForms;
 using Guna.UI2.WinForms.Suite;
 
@@ -17,15 +15,11 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
     public partial class VistaCierreTurno : Form, IVistaCierreTurno {
         private bool _modoEdicion = false;
         private CajaTurno? _turno = null!;
-        private List<CajaArqueo> _arqueosCajaBd = null!;
         private DateTime _fechaApertura;
         private decimal _montoApertura;
-        private decimal _totalEfectivoCalculado;
-        private decimal _totalTransferenciasCalculado;
-        private decimal _montoEfectivoDeclarado;
-        private decimal _montoTransferenciasDeclarado;
-        private decimal _diferenciaEfectivo;
-        private decimal _diferenciaTransferencias;
+        private decimal _totalCalculado;
+        private decimal _totalDeclarado;
+        private decimal _totalDiferencia;
 
         public VistaCierreTurno() {
             InitializeComponent();
@@ -71,7 +65,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
                 fieldCodigo.Text = value;
 
                 _turno = RepoCajaTurno.Instancia.Buscar(FiltroBusquedaCajaTurno.Codigo, value).resultadosBusqueda.Select(r => r.entidadBase).FirstOrDefault();
-                _arqueosCajaBd = RepoCajaArqueo.Instancia.ObtenerPorTurno(_turno?.Id ?? 0);
             }
         }
 
@@ -98,71 +91,39 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             }
         }
 
-        public decimal TotalEfectivoCalculado {
-            get => _totalEfectivoCalculado;
+        public decimal TotalCalculado {
+            get => _totalCalculado;
             set {
-                _totalEfectivoCalculado = value;
+                _totalCalculado = value;
 
-                //fieldEfectivoCalculado.Text = $"$ {value:N2}";
+                fieldTotalCalculado.Text = $"{RepoMoneda.Instancia.ObtenerMonedaBase().Simbolo} {value:N2}";
             }
         }
 
-        public decimal TotalTransferenciasCalculado {
-            get => _totalTransferenciasCalculado;
+        public decimal TotalDeclarado {
+            get => _totalDeclarado;
             set {
-                _totalTransferenciasCalculado = value;
+                _totalDeclarado = value;
 
-                //fieldTransferenciaCalculada.Text = $"$ {value:N2}";
+                fieldTotalDeclarado.Text = $"{RepoMoneda.Instancia.ObtenerMonedaBase().Simbolo} {value:N2}";
             }
         }
 
-        public decimal MontoEfectivoDeclarado {
-            get => _montoEfectivoDeclarado;
+        public decimal DiferenciaTotal {
+            get => _totalDiferencia;
             set {
-                _montoEfectivoDeclarado = value;
+                _totalDiferencia = value;
 
-                //fieldMontoEfectivoDeclarado.Text = value > 0
-                //    ? value.ToString("N2", CultureInfo.InvariantCulture)
-                //    : string.Empty;
-            }
-        }
+                fieldTotalDiferencia.Text = $"{RepoMoneda.Instancia.ObtenerMonedaBase().Simbolo} {value:N2}";
+                
+                var colorDiferencia = value < 0
+                    ? Color.FromArgb(198, 40, 40) // Rojo para diferencia negativa (falta dinero)
+                    : value > 0
+                        ? Color.FromArgb(255, 193, 7) // Ámbar para diferencia positiva (sobrante de dinero)
+                        : Color.FromArgb(46, 125, 50); // Verde para sin diferencia (balanceado)
 
-        public decimal MontoTransferenciasDeclarado {
-            get => _montoTransferenciasDeclarado;
-            set {
-                _montoTransferenciasDeclarado = value;
-
-                //fieldMontoTransferenciaDeclarado.Text = value > 0 
-                //    ? value.ToString("N2", CultureInfo.InvariantCulture)
-                //    : string.Empty;
-            }
-        }
-
-        public decimal DiferenciaEfectivo {
-            get => _diferenciaEfectivo;
-            set {
-                _diferenciaEfectivo = value;
-
-                //fieldDiferenciaEfectivo.Text = $"$ {value:N2}";
-                //fieldDiferenciaEfectivo.ForeColor = value < 0
-                //    ? Color.FromArgb(198, 40, 40) // Rojo para diferencia negativa (falta dinero)
-                //    : value > 0
-                //        ? Color.FromArgb(255, 193, 7) // Ámbar para diferencia positiva (sobrante de dinero)
-                //        : Color.FromArgb(46, 125, 50); // Verde para sin diferencia (balanceado)
-            }
-        }
-
-        public decimal DiferenciaTransferencias {
-            get => _diferenciaTransferencias;
-            set {
-                _diferenciaTransferencias = value;
-
-                //fieldDiferenciaTransferencias.Text = $"$ {value:N2}";
-                //fieldDiferenciaTransferencias.ForeColor = value < 0
-                //    ? Color.FromArgb(198, 40, 40) // Rojo para diferencia negativa (falta dinero)
-                //    : value > 0
-                //        ? Color.FromArgb(255, 193, 7) // Ámbar para diferencia positiva (sobrante de dinero)
-                //        : Color.FromArgb(46, 125, 50); // Verde para sin diferencia (balanceado)
+                fieldTituloTotalDiferencia.ForeColor = colorDiferencia;
+                fieldTotalDiferencia.ForeColor = colorDiferencia;
             }
         }
 
@@ -221,10 +182,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             }
 
             return arqueo;
-        }
-
-        public void ActualizarTotalArqueo(decimal totalContado) {
-            fieldTotalContado.Text = $"$ {totalContado:N2}";
         }
 
         public void PopularDenominaciones(DenominacionMoneda[] denominaciones) {
@@ -291,6 +248,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         private void AdicionarConteoDenominacion(DenominacionMoneda denominacion, Moneda moneda) {
             var tuplaConteoFisicoDenominacion = new VistaTuplaConteoFisicoDenominacion();
 
+            tuplaConteoFisicoDenominacion.Moneda = moneda;
             tuplaConteoFisicoDenominacion.Simbolo = moneda.Simbolo;
             tuplaConteoFisicoDenominacion.ValorDenominacion = (int) denominacion.Valor;
 
@@ -324,6 +282,19 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
 
         private void OnConteoDenominacionActualizado(object? sender, EventArgs e) {
             ActualizarTotalContado(sender as VistaTuplaConteoFisicoDenominacion);
+
+            var repoMoneda = RepoMoneda.Instancia;
+            var repoTasaCambio = RepoTasaCambio.Instancia;
+            var idMonedaBase = repoMoneda.ObtenerMonedaBase().Id;
+
+            TotalDeclarado = 0;
+
+            foreach (var control in panelConciliacion.Controls) {
+                if (control is VistaTuplaConciliacionMoneda tuplaConciliacion)
+                    TotalDeclarado += repoTasaCambio.Convertir(tuplaConciliacion.MontoDeclarado, tuplaConciliacion.MonedaCanal.moneda.Id, idMonedaBase);
+            }
+
+            DiferenciaTotal = TotalDeclarado - TotalCalculado;
         }
 
         private void ActualizarTotalContado(VistaTuplaConteoFisicoDenominacion? t) {
@@ -370,8 +341,12 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         public void PopularConciliacion(List<TotalesCierreCaja> totalesCalculados, long idMonedaBase) {
             panelConciliacion.Controls.Clear();
 
+            var repoMoneda = RepoMoneda.Instancia;
+            var repoTasaCambio = RepoTasaCambio.Instancia;
+            var totalGeneralBase = totalesCalculados.Sum(t => repoTasaCambio.Convertir(t.TotalEfectivo + t.TotalTransferencias, t.IdMoneda, idMonedaBase));
+
             foreach (var calculado in totalesCalculados) {
-                var moneda = RepoMoneda.Instancia.ObtenerPorId(calculado.IdMoneda) ?? new Moneda { Codigo = "N/A", Simbolo = "$" };
+                var moneda = repoMoneda.ObtenerPorId(calculado.IdMoneda) ?? new Moneda { Codigo = "N/A", Simbolo = "$" };
 
                 AgregarFilaConciliacion(moneda, CanalPagoEnum.Efectivo,
                     calculado.TotalEfectivo, declarado: 0, editable: false);
@@ -382,6 +357,9 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
                         calculado.TotalTransferencias, calculado.TotalTransferencias, editable: true);
                 }
             }
+
+            // Actualizar total calculado
+            TotalCalculado = totalGeneralBase;
         }
 
         private void AgregarFilaConciliacion(Moneda moneda, CanalPagoEnum canal, decimal calculado, decimal declarado, bool editable) {

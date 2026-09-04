@@ -27,17 +27,19 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             ComponentResourceManager resources = new ComponentResourceManager(typeof(VistaTuplaTurno));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             layoutBase = new TableLayoutPanel();
+            separador1 = new Guna2Separator();
             layoutVista = new TableLayoutPanel();
+            btnGenerarHojaConteoTurno = new Guna2Button();
             btnAnularTurno = new Guna2Button();
             fieldEstado = new Guna2Button();
             fieldFechaApertura = new Label();
@@ -48,8 +50,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldEfectivoDeclarado = new Label();
             fieldAlmacen = new Label();
             btnVerDetalleTurno = new Guna2Button();
-            separador1 = new Guna2Separator();
-            btnGenerarHojaConteoTurno = new Guna2Button();
             layoutBase.SuspendLayout();
             layoutVista.SuspendLayout();
             SuspendLayout();
@@ -69,6 +69,16 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             layoutBase.RowStyles.Add(new RowStyle(SizeType.Absolute, 5F));
             layoutBase.Size = new Size(1241, 42);
             layoutBase.TabIndex = 1;
+            // 
+            // separador1
+            // 
+            separador1.Dock = DockStyle.Fill;
+            separador1.FillColor = Color.Gainsboro;
+            separador1.Location = new Point(1, 38);
+            separador1.Margin = new Padding(1);
+            separador1.Name = "separador1";
+            separador1.Size = new Size(1239, 3);
+            separador1.TabIndex = 73;
             // 
             // layoutVista
             // 
@@ -105,16 +115,41 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             layoutVista.Size = new Size(1241, 36);
             layoutVista.TabIndex = 19;
             // 
+            // btnGenerarHojaConteoTurno
+            // 
+            btnGenerarHojaConteoTurno.Animated = true;
+            btnGenerarHojaConteoTurno.AutoRoundedCorners = true;
+            btnGenerarHojaConteoTurno.BorderColor = Color.Gainsboro;
+            btnGenerarHojaConteoTurno.BorderRadius = 14;
+            btnGenerarHojaConteoTurno.BorderThickness = 1;
+            btnGenerarHojaConteoTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage");
+            btnGenerarHojaConteoTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image");
+            btnGenerarHojaConteoTurno.CustomImages.ImageAlign = HorizontalAlignment.Center;
+            btnGenerarHojaConteoTurno.CustomizableEdges = customizableEdges9;
+            btnGenerarHojaConteoTurno.Dock = DockStyle.Fill;
+            btnGenerarHojaConteoTurno.FillColor = Color.White;
+            btnGenerarHojaConteoTurno.Font = new Font("Segoe UI", 9.75F);
+            btnGenerarHojaConteoTurno.ForeColor = Color.White;
+            btnGenerarHojaConteoTurno.HoverState.BorderColor = Color.PeachPuff;
+            btnGenerarHojaConteoTurno.HoverState.FillColor = Color.PeachPuff;
+            btnGenerarHojaConteoTurno.HoverState.ForeColor = Color.White;
+            btnGenerarHojaConteoTurno.Location = new Point(1133, 3);
+            btnGenerarHojaConteoTurno.Name = "btnGenerarHojaConteoTurno";
+            btnGenerarHojaConteoTurno.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btnGenerarHojaConteoTurno.Size = new Size(31, 30);
+            btnGenerarHojaConteoTurno.TabIndex = 42;
+            // 
             // btnAnularTurno
             // 
             btnAnularTurno.Animated = true;
+            btnAnularTurno.AutoRoundedCorners = true;
             btnAnularTurno.BorderColor = Color.Gainsboro;
-            btnAnularTurno.BorderRadius = 16;
+            btnAnularTurno.BorderRadius = 14;
             btnAnularTurno.BorderThickness = 1;
             btnAnularTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage1");
             btnAnularTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image1");
             btnAnularTurno.CustomImages.ImageAlign = HorizontalAlignment.Center;
-            btnAnularTurno.CustomizableEdges = customizableEdges3;
+            btnAnularTurno.CustomizableEdges = customizableEdges11;
             btnAnularTurno.Dock = DockStyle.Fill;
             btnAnularTurno.FillColor = Color.White;
             btnAnularTurno.Font = new Font("Segoe UI", 9.75F);
@@ -124,7 +159,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             btnAnularTurno.HoverState.ForeColor = Color.White;
             btnAnularTurno.Location = new Point(1207, 3);
             btnAnularTurno.Name = "btnAnularTurno";
-            btnAnularTurno.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnAnularTurno.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnAnularTurno.Size = new Size(31, 30);
             btnAnularTurno.TabIndex = 41;
             // 
@@ -134,7 +169,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldEstado.BorderColor = Color.Gainsboro;
             fieldEstado.BorderRadius = 9;
             fieldEstado.BorderThickness = 1;
-            fieldEstado.CustomizableEdges = customizableEdges5;
+            fieldEstado.CustomizableEdges = customizableEdges13;
             fieldEstado.DisabledState.BorderColor = Color.Gainsboro;
             fieldEstado.DisabledState.CustomBorderColor = Color.Gainsboro;
             fieldEstado.DisabledState.FillColor = Color.Gainsboro;
@@ -150,7 +185,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldEstado.Location = new Point(1008, 8);
             fieldEstado.Margin = new Padding(8);
             fieldEstado.Name = "fieldEstado";
-            fieldEstado.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            fieldEstado.ShadowDecoration.CustomizableEdges = customizableEdges14;
             fieldEstado.Size = new Size(114, 20);
             fieldEstado.TabIndex = 40;
             fieldEstado.Text = "● estado";
@@ -259,13 +294,14 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             // btnVerDetalleTurno
             // 
             btnVerDetalleTurno.Animated = true;
+            btnVerDetalleTurno.AutoRoundedCorners = true;
             btnVerDetalleTurno.BorderColor = Color.Gainsboro;
-            btnVerDetalleTurno.BorderRadius = 16;
+            btnVerDetalleTurno.BorderRadius = 14;
             btnVerDetalleTurno.BorderThickness = 1;
             btnVerDetalleTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage2");
             btnVerDetalleTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image2");
             btnVerDetalleTurno.CustomImages.ImageAlign = HorizontalAlignment.Center;
-            btnVerDetalleTurno.CustomizableEdges = customizableEdges7;
+            btnVerDetalleTurno.CustomizableEdges = customizableEdges15;
             btnVerDetalleTurno.Dock = DockStyle.Fill;
             btnVerDetalleTurno.FillColor = Color.White;
             btnVerDetalleTurno.Font = new Font("Segoe UI", 9.75F);
@@ -275,42 +311,9 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             btnVerDetalleTurno.HoverState.ForeColor = Color.White;
             btnVerDetalleTurno.Location = new Point(1170, 3);
             btnVerDetalleTurno.Name = "btnVerDetalleTurno";
-            btnVerDetalleTurno.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnVerDetalleTurno.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnVerDetalleTurno.Size = new Size(31, 30);
             btnVerDetalleTurno.TabIndex = 22;
-            // 
-            // separador1
-            // 
-            separador1.Dock = DockStyle.Fill;
-            separador1.FillColor = Color.Gainsboro;
-            separador1.Location = new Point(1, 38);
-            separador1.Margin = new Padding(1);
-            separador1.Name = "separador1";
-            separador1.Size = new Size(1239, 3);
-            separador1.TabIndex = 73;
-            // 
-            // btnGenerarHojaConteoTurno
-            // 
-            btnGenerarHojaConteoTurno.Animated = true;
-            btnGenerarHojaConteoTurno.BorderColor = Color.Gainsboro;
-            btnGenerarHojaConteoTurno.BorderRadius = 16;
-            btnGenerarHojaConteoTurno.BorderThickness = 1;
-            btnGenerarHojaConteoTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage");
-            btnGenerarHojaConteoTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image");
-            btnGenerarHojaConteoTurno.CustomImages.ImageAlign = HorizontalAlignment.Center;
-            btnGenerarHojaConteoTurno.CustomizableEdges = customizableEdges1;
-            btnGenerarHojaConteoTurno.Dock = DockStyle.Fill;
-            btnGenerarHojaConteoTurno.FillColor = Color.White;
-            btnGenerarHojaConteoTurno.Font = new Font("Segoe UI", 9.75F);
-            btnGenerarHojaConteoTurno.ForeColor = Color.White;
-            btnGenerarHojaConteoTurno.HoverState.BorderColor = Color.PeachPuff;
-            btnGenerarHojaConteoTurno.HoverState.FillColor = Color.PeachPuff;
-            btnGenerarHojaConteoTurno.HoverState.ForeColor = Color.White;
-            btnGenerarHojaConteoTurno.Location = new Point(1133, 3);
-            btnGenerarHojaConteoTurno.Name = "btnGenerarHojaConteoTurno";
-            btnGenerarHojaConteoTurno.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnGenerarHojaConteoTurno.Size = new Size(31, 30);
-            btnGenerarHojaConteoTurno.TabIndex = 42;
             // 
             // VistaTuplaTurno
             // 

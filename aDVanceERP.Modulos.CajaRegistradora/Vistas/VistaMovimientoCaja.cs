@@ -70,8 +70,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
 
         public TipoMovimientoCajaEnum Tipo { get; set; }
 
-
-
         public CanalPagoEnum CanalPago {
             get => (CanalPagoEnum) fieldCanalPago.SelectedIndex;
             set => fieldCanalPago.SelectedItem = value.ObtenerNombreDescripcion();

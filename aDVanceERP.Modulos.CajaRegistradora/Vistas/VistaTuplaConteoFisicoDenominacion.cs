@@ -1,4 +1,6 @@
-﻿namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
+﻿using aDVanceERP.Core.Modelos.Modulos.Monedas;
+
+namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
     public partial class VistaTuplaConteoFisicoDenominacion : Form {
         private int _valorDenominacion;
         private int _cantidad;
@@ -14,6 +16,8 @@
         }
 
         public event EventHandler? ConteoDenominacionActualizado;
+
+        public Moneda Moneda { get; set; }
 
         public string Simbolo { 
             get => _simbolo; 

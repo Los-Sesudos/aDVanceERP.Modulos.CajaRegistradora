@@ -41,6 +41,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             ComponentResourceManager resources = new ComponentResourceManager(typeof(VistaGestionCajaTurno));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -61,10 +65,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             formatoBase = new Guna2BorderlessForm(components);
             layoutVista = new TableLayoutPanel();
             panelControlesTabla = new Guna2Panel();
@@ -77,6 +77,8 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldPaginaActual = new Label();
             fieldPaginasTotales = new Label();
             layoutTitulo = new TableLayoutPanel();
+            fieldFechaResumenMovimientos = new Guna2DateTimePicker();
+            btnGenerarResumenMovimientos = new Guna2Button();
             btnAbrirTurno = new Guna2Button();
             fieldTitulo = new Label();
             fieldIcono = new PictureBox();
@@ -118,8 +120,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldTituloCodigo = new Label();
             layoutContenedorVistas = new TableLayoutPanel();
             contenedorVistas = new Panel();
-            btnGenerarResumenMovimientos = new Guna2Button();
-            fieldFechaResumenMovimientos = new Guna2DateTimePicker();
             layoutVista.SuspendLayout();
             panelControlesTabla.SuspendLayout();
             layoutControlesTabla.SuspendLayout();
@@ -413,6 +413,63 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             layoutTitulo.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             layoutTitulo.Size = new Size(1286, 45);
             layoutTitulo.TabIndex = 14;
+            // 
+            // fieldFechaResumenMovimientos
+            // 
+            fieldFechaResumenMovimientos.Animated = true;
+            fieldFechaResumenMovimientos.AutoRoundedCorners = true;
+            fieldFechaResumenMovimientos.BackColor = Color.White;
+            fieldFechaResumenMovimientos.BorderRadius = 18;
+            fieldFechaResumenMovimientos.BorderThickness = 1;
+            fieldFechaResumenMovimientos.Checked = true;
+            fieldFechaResumenMovimientos.CheckedState.BorderColor = Color.Black;
+            fieldFechaResumenMovimientos.CheckedState.FillColor = Color.White;
+            fieldFechaResumenMovimientos.CheckedState.ForeColor = Color.Black;
+            fieldFechaResumenMovimientos.CustomFormat = "yyyy-MM-dd";
+            customizableEdges13.BottomLeft = false;
+            customizableEdges13.TopLeft = false;
+            fieldFechaResumenMovimientos.CustomizableEdges = customizableEdges13;
+            fieldFechaResumenMovimientos.Dock = DockStyle.Fill;
+            fieldFechaResumenMovimientos.FillColor = Color.White;
+            fieldFechaResumenMovimientos.Font = new Font("Segoe UI", 11.25F);
+            fieldFechaResumenMovimientos.ForeColor = Color.Black;
+            fieldFechaResumenMovimientos.Format = DateTimePickerFormat.Custom;
+            fieldFechaResumenMovimientos.Location = new Point(1146, 3);
+            fieldFechaResumenMovimientos.Margin = new Padding(0, 3, 3, 3);
+            fieldFechaResumenMovimientos.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            fieldFechaResumenMovimientos.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            fieldFechaResumenMovimientos.Name = "fieldFechaResumenMovimientos";
+            fieldFechaResumenMovimientos.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            fieldFechaResumenMovimientos.Size = new Size(137, 39);
+            fieldFechaResumenMovimientos.TabIndex = 34;
+            fieldFechaResumenMovimientos.Value = new DateTime(2026, 2, 5, 17, 13, 37, 0);
+            // 
+            // btnGenerarResumenMovimientos
+            // 
+            btnGenerarResumenMovimientos.Animated = true;
+            btnGenerarResumenMovimientos.AutoRoundedCorners = true;
+            btnGenerarResumenMovimientos.BackColor = Color.White;
+            btnGenerarResumenMovimientos.BorderRadius = 18;
+            btnGenerarResumenMovimientos.BorderThickness = 1;
+            customizableEdges15.BottomRight = false;
+            customizableEdges15.TopRight = false;
+            btnGenerarResumenMovimientos.CustomizableEdges = customizableEdges15;
+            btnGenerarResumenMovimientos.Dock = DockStyle.Fill;
+            btnGenerarResumenMovimientos.FillColor = Color.White;
+            btnGenerarResumenMovimientos.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            btnGenerarResumenMovimientos.ForeColor = Color.Black;
+            btnGenerarResumenMovimientos.HoverState.BorderColor = Color.PeachPuff;
+            btnGenerarResumenMovimientos.HoverState.FillColor = Color.PeachPuff;
+            btnGenerarResumenMovimientos.HoverState.ForeColor = Color.Black;
+            btnGenerarResumenMovimientos.Image = (Image) resources.GetObject("btnGenerarResumenMovimientos.Image");
+            btnGenerarResumenMovimientos.ImageOffset = new Point(-5, 0);
+            btnGenerarResumenMovimientos.Location = new Point(859, 3);
+            btnGenerarResumenMovimientos.Margin = new Padding(3, 3, 0, 3);
+            btnGenerarResumenMovimientos.Name = "btnGenerarResumenMovimientos";
+            btnGenerarResumenMovimientos.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnGenerarResumenMovimientos.Size = new Size(287, 39);
+            btnGenerarResumenMovimientos.TabIndex = 20;
+            btnGenerarResumenMovimientos.Text = "Generar resumen de mov. del día";
             // 
             // btnAbrirTurno
             // 
@@ -942,10 +999,9 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             layoutEncabezadosTabla.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
             layoutEncabezadosTabla.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
             layoutEncabezadosTabla.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
-            layoutEncabezadosTabla.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
             layoutEncabezadosTabla.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 110F));
-            layoutEncabezadosTabla.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 74F));
-            layoutEncabezadosTabla.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            layoutEncabezadosTabla.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 130F));
+            layoutEncabezadosTabla.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
             layoutEncabezadosTabla.Controls.Add(fieldTituloAcciones, 8, 0);
             layoutEncabezadosTabla.Controls.Add(fieldTituloDiferenciaEfectivo, 6, 0);
             layoutEncabezadosTabla.Controls.Add(fieldTituloFechaApertura, 3, 0);
@@ -970,10 +1026,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldTituloAcciones.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             fieldTituloAcciones.ForeColor = Color.DimGray;
             fieldTituloAcciones.ImeMode = ImeMode.NoControl;
-            fieldTituloAcciones.Location = new Point(1213, 1);
+            fieldTituloAcciones.Location = new Point(1175, 1);
             fieldTituloAcciones.Margin = new Padding(1);
             fieldTituloAcciones.Name = "fieldTituloAcciones";
-            fieldTituloAcciones.Size = new Size(72, 40);
+            fieldTituloAcciones.Size = new Size(110, 40);
             fieldTituloAcciones.TabIndex = 20;
             fieldTituloAcciones.Text = "ACCIONES";
             fieldTituloAcciones.TextAlign = ContentAlignment.MiddleLeft;
@@ -984,12 +1040,12 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldTituloDiferenciaEfectivo.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             fieldTituloDiferenciaEfectivo.ForeColor = Color.DimGray;
             fieldTituloDiferenciaEfectivo.ImeMode = ImeMode.NoControl;
-            fieldTituloDiferenciaEfectivo.Location = new Point(973, 1);
+            fieldTituloDiferenciaEfectivo.Location = new Point(935, 1);
             fieldTituloDiferenciaEfectivo.Margin = new Padding(1);
             fieldTituloDiferenciaEfectivo.Name = "fieldTituloDiferenciaEfectivo";
-            fieldTituloDiferenciaEfectivo.Size = new Size(128, 40);
+            fieldTituloDiferenciaEfectivo.Size = new Size(108, 40);
             fieldTituloDiferenciaEfectivo.TabIndex = 19;
-            fieldTituloDiferenciaEfectivo.Text = "DIFERENCIA DE EFECTIVO";
+            fieldTituloDiferenciaEfectivo.Text = "DIFERENCIA";
             fieldTituloDiferenciaEfectivo.TextAlign = ContentAlignment.MiddleRight;
             // 
             // fieldTituloFechaApertura
@@ -998,7 +1054,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldTituloFechaApertura.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             fieldTituloFechaApertura.ForeColor = Color.DimGray;
             fieldTituloFechaApertura.ImeMode = ImeMode.NoControl;
-            fieldTituloFechaApertura.Location = new Point(553, 1);
+            fieldTituloFechaApertura.Location = new Point(515, 1);
             fieldTituloFechaApertura.Margin = new Padding(1);
             fieldTituloFechaApertura.Name = "fieldTituloFechaApertura";
             fieldTituloFechaApertura.Size = new Size(158, 40);
@@ -1012,10 +1068,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldTituloApertura.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             fieldTituloApertura.ForeColor = Color.DimGray;
             fieldTituloApertura.ImeMode = ImeMode.NoControl;
-            fieldTituloApertura.Location = new Point(367, 1);
+            fieldTituloApertura.Location = new Point(348, 1);
             fieldTituloApertura.Margin = new Padding(1);
             fieldTituloApertura.Name = "fieldTituloApertura";
-            fieldTituloApertura.Size = new Size(184, 40);
+            fieldTituloApertura.Size = new Size(165, 40);
             fieldTituloApertura.TabIndex = 10;
             fieldTituloApertura.Text = "APERTURA";
             fieldTituloApertura.TextAlign = ContentAlignment.MiddleLeft;
@@ -1026,12 +1082,12 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldTituloEfectivoCalculado.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             fieldTituloEfectivoCalculado.ForeColor = Color.DimGray;
             fieldTituloEfectivoCalculado.ImeMode = ImeMode.NoControl;
-            fieldTituloEfectivoCalculado.Location = new Point(713, 1);
+            fieldTituloEfectivoCalculado.Location = new Point(675, 1);
             fieldTituloEfectivoCalculado.Margin = new Padding(1);
             fieldTituloEfectivoCalculado.Name = "fieldTituloEfectivoCalculado";
             fieldTituloEfectivoCalculado.Size = new Size(128, 40);
             fieldTituloEfectivoCalculado.TabIndex = 4;
-            fieldTituloEfectivoCalculado.Text = "EFECTIVO CALCULADO";
+            fieldTituloEfectivoCalculado.Text = "MONTO CALCULADO";
             fieldTituloEfectivoCalculado.TextAlign = ContentAlignment.MiddleRight;
             // 
             // fieldTituloEfectivoDeclarado
@@ -1040,12 +1096,12 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldTituloEfectivoDeclarado.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             fieldTituloEfectivoDeclarado.ForeColor = Color.DimGray;
             fieldTituloEfectivoDeclarado.ImeMode = ImeMode.NoControl;
-            fieldTituloEfectivoDeclarado.Location = new Point(843, 1);
+            fieldTituloEfectivoDeclarado.Location = new Point(805, 1);
             fieldTituloEfectivoDeclarado.Margin = new Padding(1);
             fieldTituloEfectivoDeclarado.Name = "fieldTituloEfectivoDeclarado";
             fieldTituloEfectivoDeclarado.Size = new Size(128, 40);
             fieldTituloEfectivoDeclarado.TabIndex = 16;
-            fieldTituloEfectivoDeclarado.Text = "EFECTIVO DECLARADO";
+            fieldTituloEfectivoDeclarado.Text = "MONTO DECLARADO";
             fieldTituloEfectivoDeclarado.TextAlign = ContentAlignment.MiddleRight;
             // 
             // fieldTituloEstado
@@ -1054,10 +1110,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldTituloEstado.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             fieldTituloEstado.ForeColor = Color.DimGray;
             fieldTituloEstado.ImeMode = ImeMode.NoControl;
-            fieldTituloEstado.Location = new Point(1103, 1);
+            fieldTituloEstado.Location = new Point(1045, 1);
             fieldTituloEstado.Margin = new Padding(1);
             fieldTituloEstado.Name = "fieldTituloEstado";
-            fieldTituloEstado.Size = new Size(108, 40);
+            fieldTituloEstado.Size = new Size(128, 40);
             fieldTituloEstado.TabIndex = 17;
             fieldTituloEstado.Text = "ESTADO";
             fieldTituloEstado.TextAlign = ContentAlignment.MiddleLeft;
@@ -1071,7 +1127,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             fieldTituloAlmacen.Location = new Point(181, 1);
             fieldTituloAlmacen.Margin = new Padding(1);
             fieldTituloAlmacen.Name = "fieldTituloAlmacen";
-            fieldTituloAlmacen.Size = new Size(184, 40);
+            fieldTituloAlmacen.Size = new Size(165, 40);
             fieldTituloAlmacen.TabIndex = 15;
             fieldTituloAlmacen.Text = "ALMACÉN";
             fieldTituloAlmacen.TextAlign = ContentAlignment.MiddleLeft;
@@ -1114,63 +1170,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             contenedorVistas.Name = "contenedorVistas";
             contenedorVistas.Size = new Size(1284, 268);
             contenedorVistas.TabIndex = 13;
-            // 
-            // btnGenerarResumenMovimientos
-            // 
-            btnGenerarResumenMovimientos.Animated = true;
-            btnGenerarResumenMovimientos.AutoRoundedCorners = true;
-            btnGenerarResumenMovimientos.BackColor = Color.White;
-            btnGenerarResumenMovimientos.BorderRadius = 18;
-            btnGenerarResumenMovimientos.BorderThickness = 1;
-            customizableEdges15.BottomRight = false;
-            customizableEdges15.TopRight = false;
-            btnGenerarResumenMovimientos.CustomizableEdges = customizableEdges15;
-            btnGenerarResumenMovimientos.Dock = DockStyle.Fill;
-            btnGenerarResumenMovimientos.FillColor = Color.White;
-            btnGenerarResumenMovimientos.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
-            btnGenerarResumenMovimientos.ForeColor = Color.Black;
-            btnGenerarResumenMovimientos.HoverState.BorderColor = Color.PeachPuff;
-            btnGenerarResumenMovimientos.HoverState.FillColor = Color.PeachPuff;
-            btnGenerarResumenMovimientos.HoverState.ForeColor = Color.Black;
-            btnGenerarResumenMovimientos.Image = (Image) resources.GetObject("btnGenerarResumenMovimientos.Image");
-            btnGenerarResumenMovimientos.ImageOffset = new Point(-5, 0);
-            btnGenerarResumenMovimientos.Location = new Point(859, 3);
-            btnGenerarResumenMovimientos.Margin = new Padding(3, 3, 0, 3);
-            btnGenerarResumenMovimientos.Name = "btnGenerarResumenMovimientos";
-            btnGenerarResumenMovimientos.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnGenerarResumenMovimientos.Size = new Size(287, 39);
-            btnGenerarResumenMovimientos.TabIndex = 20;
-            btnGenerarResumenMovimientos.Text = "Generar resumen de mov. del día";
-            // 
-            // fieldFechaResumenMovimientos
-            // 
-            fieldFechaResumenMovimientos.Animated = true;
-            fieldFechaResumenMovimientos.AutoRoundedCorners = true;
-            fieldFechaResumenMovimientos.BackColor = Color.White;
-            fieldFechaResumenMovimientos.BorderRadius = 18;
-            fieldFechaResumenMovimientos.BorderThickness = 1;
-            fieldFechaResumenMovimientos.Checked = true;
-            fieldFechaResumenMovimientos.CheckedState.BorderColor = Color.Black;
-            fieldFechaResumenMovimientos.CheckedState.FillColor = Color.White;
-            fieldFechaResumenMovimientos.CheckedState.ForeColor = Color.Black;
-            fieldFechaResumenMovimientos.CustomFormat = "yyyy-MM-dd";
-            customizableEdges13.BottomLeft = false;
-            customizableEdges13.TopLeft = false;
-            fieldFechaResumenMovimientos.CustomizableEdges = customizableEdges13;
-            fieldFechaResumenMovimientos.Dock = DockStyle.Fill;
-            fieldFechaResumenMovimientos.FillColor = Color.White;
-            fieldFechaResumenMovimientos.Font = new Font("Segoe UI", 11.25F);
-            fieldFechaResumenMovimientos.ForeColor = Color.Black;
-            fieldFechaResumenMovimientos.Format = DateTimePickerFormat.Custom;
-            fieldFechaResumenMovimientos.Location = new Point(1146, 3);
-            fieldFechaResumenMovimientos.Margin = new Padding(0, 3, 3, 3);
-            fieldFechaResumenMovimientos.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            fieldFechaResumenMovimientos.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            fieldFechaResumenMovimientos.Name = "fieldFechaResumenMovimientos";
-            fieldFechaResumenMovimientos.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            fieldFechaResumenMovimientos.Size = new Size(137, 39);
-            fieldFechaResumenMovimientos.TabIndex = 34;
-            fieldFechaResumenMovimientos.Value = new DateTime(2026, 2, 5, 17, 13, 37, 0);
             // 
             // VistaGestionCajaTurno
             // 

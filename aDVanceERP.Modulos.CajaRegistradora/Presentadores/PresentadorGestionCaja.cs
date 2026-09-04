@@ -9,6 +9,7 @@ using aDVanceERP.Core.Modelos.Modulos.Caja;
 using aDVanceERP.Core.Presentadores.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
 using aDVanceERP.Core.Repositorios.Modulos.Inventario;
+using aDVanceERP.Core.Repositorios.Modulos.Monedas;
 using aDVanceERP.Modulos.CajaRegistradora.Documentos;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 using aDVanceERP.Modulos.CajaRegistradora.Vistas;
@@ -79,8 +80,13 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
         }
 
         protected override PresentadorTuplaTurno ObtenerValoresTupla(CajaTurno entidad, List<IEntidadBaseDatos> entidadesExtra) {
+            var totalesPorMoneda = RepoCajaMovimiento.Instancia.ObtenerTotalesPorCanalYMoneda(entidad.Id);
+            var monedaBase = RepoMoneda.Instancia.ObtenerMonedaBase();
+            var repoTasaCambio = RepoTasaCambio.Instancia;
+            var totalesBase = totalesPorMoneda.FirstOrDefault(t => t.IdMoneda == monedaBase.Id) ?? new TotalesCierreCaja { IdMoneda = monedaBase.Id };
+            var totalGeneralBase = totalesPorMoneda.Sum(t => repoTasaCambio.Convertir(t.TotalEfectivo + t.TotalTransferencias, t.IdMoneda, monedaBase.Id));
             var presentadorTupla = new PresentadorTuplaTurno(new VistaTuplaTurno(), entidad);
-
+            
             presentadorTupla.Vista.Id = entidad.Id;
             presentadorTupla.Vista.Codigo = entidad.Codigo;
             presentadorTupla.Vista.NombreAlmacen = entidad.NombreAlmacen ?? "-";

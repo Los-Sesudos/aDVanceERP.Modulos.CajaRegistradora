@@ -5,6 +5,7 @@ using aDVanceERP.Core.Modelos.Comun;
 using aDVanceERP.Core.Modelos.Modulos.Caja;
 using aDVanceERP.Core.Modelos.Modulos.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
+using aDVanceERP.Core.Repositorios.Modulos.Monedas;
 
 namespace aDVanceERP.Modulos.CajaRegistradora.Manejadores {
     internal class ManejadorCierreTurno {
@@ -16,44 +17,49 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Manejadores {
 
         internal void Manejar(EventoConfirmacionCierreTurno e) {
             var idUsuario = ContextoSeguridad.UsuarioAutenticado?.Id ?? 0;
+            var idMonedaBase = RepoMoneda.Instancia.ObtenerMonedaBase().Id;
 
-            // Guardar arqueo de denominaciones (transacción interna en el repo)
-            _repoCajaArqueo.GuardarArqueoCompleto(e.Turno!.Id, e.ArqueoCaja);
+            _repoCajaArqueo.GuardarArqueoCompleto(e.Turno.Id, e.ArqueoCaja);
 
-            // Registrar AjusteArqueo si hay diferencia en efectivo
-            if (e.DiferenciaEfectivo != 0m) {
+            var filaEfectivoBase = e.Conciliacion.FirstOrDefault(c => c.IdMoneda == idMonedaBase && c.CanalPago == CanalPagoEnum.Efectivo);
+            var filaTransferenciaBase = e.Conciliacion.FirstOrDefault(c => c.IdMoneda == idMonedaBase && c.CanalPago == CanalPagoEnum.TransferenciaBancaria);
+
+            // Ajustes por diferencia — uno por cada moneda/canal con descuadre, no solo el de la base.
+            foreach (var fila in e.Conciliacion.Where(c => c.Diferencia != 0m)) {
+                var moneda = RepoMoneda.Instancia.ObtenerPorId(fila.IdMoneda);
                 RepoCajaMovimiento.Instancia.Adicionar(new CajaMovimiento {
                     IdTurno = e.Turno.Id,
                     Tipo = TipoMovimientoCajaEnum.AjusteArqueo,
-                    CanalPago = CanalPagoEnum.Efectivo,
+                    CanalPago = fila.CanalPago,
+                    IdMoneda = fila.IdMoneda,
                     IdVenta = null,
-                    Monto = e.DiferenciaEfectivo,
-                    Descripcion = e.DiferenciaEfectivo > 0
-                                        ? "Sobrante de efectivo en arqueo de cierre"
-                                        : "Faltante de efectivo en arqueo de cierre",
+                    Monto = fila.Diferencia,
+                    Descripcion = fila.Diferencia > 0
+                        ? $"Sobrante de {fila.CanalPago} en arqueo de cierre ({moneda?.Codigo})"
+                        : $"Faltante de {fila.CanalPago} en arqueo de cierre ({moneda?.Codigo})",
                     IdCuentaUsuario = idUsuario,
                     FechaMovimiento = DateTime.Now
                 });
             }
 
-            // Cerrar el turno - el repo escribe los 4 montos y cambia el estado
             var cerrado = RepoCajaTurno.Instancia.CerrarTurno(
                 idTurno: e.Turno.Id,
                 idCuentaCierre: idUsuario,
-                montoEfectivoCalculado: 0,//TODO: e.TotalesCierreCaja!.TotalEfectivo,
-                montoEfectivoDeclarado: e.MontoEfectivoDeclarado,
-                montoTransferenciasCalculado: 0, // TODO: e.TotalesCierreCaja.TotalTransferencias,
-                montoTransferenciasDeclarado: e.MontoTransferenciasDeclarado,
+                montoEfectivoCalculado: filaEfectivoBase?.MontoCalculado ?? 0,
+                montoEfectivoDeclarado: filaEfectivoBase?.MontoDeclarado ?? 0,
+                montoTransferenciasCalculado: filaTransferenciaBase?.MontoCalculado ?? 0,
+                montoTransferenciasDeclarado: filaTransferenciaBase?.MontoDeclarado ?? 0,
                 observacionesCierre: e.Observaciones);
 
-            if (cerrado) {
-                CentroNotificaciones.MostrarNotificacion(
-                    $"Turno {e.Turno.Codigo} cerrado correctamente.",
-                    TipoNotificacionEnum.Info);
+            // El resto de monedas (no-base) se guarda aparte — CerrarTurno no tiene columnas para ellas.
+            var conciliacionNoBase = e.Conciliacion.Where(c => c.IdMoneda != idMonedaBase).ToList();
 
-                AgregadorEventos.Publicar(new EventoTurnoCajaCerrado() {
-                    Turno = e.Turno
-                });
+            if (conciliacionNoBase.Count > 0)
+                RepoCajaConciliacionMoneda.Instancia.GuardarConciliacion(e.Turno.Id, conciliacionNoBase);
+
+            if (cerrado) {
+                CentroNotificaciones.MostrarNotificacion($"Turno {e.Turno.Codigo} cerrado correctamente.", TipoNotificacionEnum.Info);
+                AgregadorEventos.Publicar(new EventoTurnoCajaCerrado() { Turno = e.Turno });
             } else {
                 CentroNotificaciones.MostrarNotificacion(
                     "No fue posible cerrar el turno. Es posible que ya haya sido cerrado en otra sesión.",
