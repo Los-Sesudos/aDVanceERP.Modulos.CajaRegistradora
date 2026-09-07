@@ -1,4 +1,5 @@
 ﻿using aDVanceERP.Core.Infraestructura.Globales;
+using aDVanceERP.Core.Modelos.Modulos.Inventario;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 
 using System.Globalization;
@@ -44,11 +45,15 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             get => Size;
             set => Size = value;
         }
-        public long IdAlmacen { get; set; }
 
-        public string NombreAlmacen { 
-            get => fieldAlmacen.Text;
-            set => fieldAlmacen.Text = value;
+        public Almacen? Almacen {
+            get => fieldAlmacen.SelectedItem as Almacen;
+            set => fieldAlmacen.SelectedItem = value;
+        }
+
+        public DateTime FechaApertura {
+            get => fieldFechaApertura.Value;
+            set => fieldFechaApertura.Value = value;
         }
 
         public decimal MontoApertura {
@@ -66,6 +71,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         public event EventHandler? EliminarEntidad;
 
         public void Inicializar() {
+            fieldFechaApertura.Value = DateTime.Now;
             btnRegistrarActualizar.Click += delegate (object? sender, EventArgs args) {
                 RegistrarEntidad?.Invoke(sender, args);
             };
@@ -84,14 +90,23 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         }
 
         public void Restaurar() {
-            IdAlmacen = 0L;
-            NombreAlmacen = string.Empty;
             fieldMontoEfectivo.Text = string.Empty;
             Observaciones = string.Empty;
+
+            // Resetear selección de almacén al primero disponible
+            if (fieldAlmacen.Items.Count > 0)
+                fieldAlmacen.SelectedIndex = 0;
         }
 
         public void Cerrar() {
             Dispose();
+        }
+
+        public void CargarAlmacenes(Almacen[] almacenes) {
+            fieldAlmacen.Items.Clear();
+            fieldAlmacen.Items.Add("— Seleccione un almacén —");
+            fieldAlmacen.Items.AddRange(almacenes);
+            fieldAlmacen.SelectedIndex = 0;
         }
     }
 }

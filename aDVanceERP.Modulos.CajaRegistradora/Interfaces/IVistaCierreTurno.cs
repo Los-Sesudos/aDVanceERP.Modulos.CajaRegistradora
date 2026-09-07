@@ -10,7 +10,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Interfaces {
         decimal MontoApertura { get; set; }
         decimal TotalCalculado { get; set; }
         decimal TotalDeclarado { get; set; }
-        decimal DiferenciaTotal { get; set; }
+        decimal TotalDiferencia { get; set; }
 
         string? Observaciones { get; set; }
 
@@ -19,7 +19,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Interfaces {
         List<CajaConciliacionMoneda> ObtenerConciliacion();
         void PopularConciliacion(List<TotalesCierreCaja> totalesCalculados, long idMonedaBase);
 
-        event EventHandler? ArqueoModificado;
         event EventHandler? ConciliacionModificada;
         event EventHandler? ConfirmarCierreTurno;
     }

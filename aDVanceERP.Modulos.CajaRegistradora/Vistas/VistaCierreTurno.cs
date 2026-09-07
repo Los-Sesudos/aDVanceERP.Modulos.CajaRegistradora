@@ -95,8 +95,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             get => _totalCalculado;
             set {
                 _totalCalculado = value;
-
-                fieldTotalCalculado.Text = $"{RepoMoneda.Instancia.ObtenerMonedaBase().Simbolo} {value:N2}";
             }
         }
 
@@ -104,26 +102,13 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             get => _totalDeclarado;
             set {
                 _totalDeclarado = value;
-
-                fieldTotalDeclarado.Text = $"{RepoMoneda.Instancia.ObtenerMonedaBase().Simbolo} {value:N2}";
             }
         }
 
-        public decimal DiferenciaTotal {
+        public decimal TotalDiferencia {
             get => _totalDiferencia;
             set {
                 _totalDiferencia = value;
-
-                fieldTotalDiferencia.Text = $"{RepoMoneda.Instancia.ObtenerMonedaBase().Simbolo} {value:N2}";
-                
-                var colorDiferencia = value < 0
-                    ? Color.FromArgb(198, 40, 40) // Rojo para diferencia negativa (falta dinero)
-                    : value > 0
-                        ? Color.FromArgb(255, 193, 7) // Ámbar para diferencia positiva (sobrante de dinero)
-                        : Color.FromArgb(46, 125, 50); // Verde para sin diferencia (balanceado)
-
-                fieldTituloTotalDiferencia.ForeColor = colorDiferencia;
-                fieldTotalDiferencia.ForeColor = colorDiferencia;
             }
         }
 
@@ -136,7 +121,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         public event EventHandler? EditarEntidad;
         public event EventHandler? EliminarEntidad;
         public event EventHandler? ConciliacionModificada;
-        public event EventHandler? ArqueoModificado;
         public event EventHandler? ConfirmarCierreTurno;
 
         public void Inicializar() {
@@ -282,19 +266,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
 
         private void OnConteoDenominacionActualizado(object? sender, EventArgs e) {
             ActualizarTotalContado(sender as VistaTuplaConteoFisicoDenominacion);
-
-            var repoMoneda = RepoMoneda.Instancia;
-            var repoTasaCambio = RepoTasaCambio.Instancia;
-            var idMonedaBase = repoMoneda.ObtenerMonedaBase().Id;
-
-            TotalDeclarado = 0;
-
-            foreach (var control in panelConciliacion.Controls) {
-                if (control is VistaTuplaConciliacionMoneda tuplaConciliacion)
-                    TotalDeclarado += repoTasaCambio.Convertir(tuplaConciliacion.MontoDeclarado, tuplaConciliacion.MonedaCanal.moneda.Id, idMonedaBase);
-            }
-
-            DiferenciaTotal = TotalDeclarado - TotalCalculado;
         }
 
         private void ActualizarTotalContado(VistaTuplaConteoFisicoDenominacion? t) {
@@ -342,9 +313,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             panelConciliacion.Controls.Clear();
 
             var repoMoneda = RepoMoneda.Instancia;
-            var repoTasaCambio = RepoTasaCambio.Instancia;
-            var totalGeneralBase = totalesCalculados.Sum(t => repoTasaCambio.Convertir(t.TotalEfectivo + t.TotalTransferencias, t.IdMoneda, idMonedaBase));
-
+            
             foreach (var calculado in totalesCalculados) {
                 var moneda = repoMoneda.ObtenerPorId(calculado.IdMoneda) ?? new Moneda { Codigo = "N/A", Simbolo = "$" };
 
@@ -358,8 +327,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
                 }
             }
 
-            // Actualizar total calculado
-            TotalCalculado = totalGeneralBase;
+            ActualizarTotalesGenerales();
         }
 
         private void AgregarFilaConciliacion(Moneda moneda, CanalPagoEnum canal, decimal calculado, decimal declarado, bool editable) {
@@ -377,6 +345,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             // Eventos
             tupla.MontoDeclaradoModificado += (s, e) => {
                 tupla.Diferencia = tupla.MontoDeclarado - tupla.MontoCalculado;
+                ActualizarTotalesGenerales();
                 ConciliacionModificada?.Invoke(this, EventArgs.Empty);
             };
 
@@ -385,6 +354,41 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         }
 
         #region AUXILIARES
+
+        private void ActualizarTotalesGenerales() {
+            var repoTasaCambio = RepoTasaCambio.Instancia;
+            var repoMoneda = RepoMoneda.Instancia;
+            var monedaBase = repoMoneda.ObtenerMonedaBase();
+            var simboloBase = monedaBase.Simbolo;
+
+            // Limpiar totales
+            TotalCalculado = 0;
+            TotalDeclarado = 0;
+            TotalDiferencia = 0;
+
+            foreach (var control in panelConciliacion.Controls) {
+                if (control is VistaTuplaConciliacionMoneda tupla) {
+                    TotalCalculado += repoTasaCambio.Convertir(tupla.MontoCalculado, tupla.MonedaCanal.moneda.Id, monedaBase.Id);
+                    TotalDeclarado += repoTasaCambio.Convertir(tupla.MontoDeclarado, tupla.MonedaCanal.moneda.Id, monedaBase.Id);
+                }
+            }
+
+            fieldTotalCalculado.Text = $"{simboloBase} {TotalCalculado:N2}";
+            fieldTotalDeclarado.Text = $"{simboloBase} {TotalDeclarado:N2}";
+
+            TotalDiferencia = TotalDeclarado - TotalCalculado;
+            
+            fieldTotalDiferencia.Text = $"{simboloBase} {TotalDiferencia:N2}";
+
+            var colorDiferencia = TotalDiferencia < 0
+                    ? Color.FromArgb(198, 40, 40) // Rojo para diferencia negativa (falta dinero)
+                    : TotalDiferencia > 0
+                        ? Color.FromArgb(255, 193, 7) // Ámbar para diferencia positiva (sobrante de dinero)
+                        : Color.FromArgb(46, 125, 50); // Verde para sin diferencia (balanceado)
+
+            fieldTituloTotalDiferencia.ForeColor = colorDiferencia;
+            fieldTotalDiferencia.ForeColor = colorDiferencia;
+        }
 
         #endregion
     }

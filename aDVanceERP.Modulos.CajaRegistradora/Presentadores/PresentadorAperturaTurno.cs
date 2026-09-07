@@ -29,21 +29,18 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
         private void CargarDatosComunes(Venta venta, long idAlmacen) {
             _venta = venta;
 
-            var almacen = RepoAlmacen.Instancia.ObtenerPorId(idAlmacen)!;
-
-            Vista.IdAlmacen = almacen.Id;
-            Vista.NombreAlmacen = almacen.ToString();
+            Vista.CargarAlmacenes([.. RepoAlmacen.Instancia.ObtenerTodos().Select(r => r.entidadBase)]);
         }
 
         protected override CajaTurno? ObtenerEntidadDesdeVista() {
             var idUsuario = ContextoSeguridad.UsuarioAutenticado?.Id ?? 0;
-            var codigo = RepoCajaTurno.Instancia.GenerarCodigoTurno(Vista.IdAlmacen);
+            var codigo = RepoCajaTurno.Instancia.GenerarCodigoTurno(Vista.Almacen?.Id ?? 0);
 
             var turno = new CajaTurno {
                 Codigo = codigo,
-                IdAlmacen = Vista.IdAlmacen,
+                IdAlmacen = Vista.Almacen!.Id,
                 IdCuentaApertura = idUsuario,
-                FechaApertura = DateTime.Now,
+                FechaApertura = Vista.FechaApertura,
                 MontoApertura = Vista.MontoApertura,
                 Estado = EstadoCajaTurnoEnum.Abierto,
                 ObservacionesApertura = Vista.Observaciones
@@ -72,7 +69,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
                 return false;
             }
 
-            if (RepoCajaTurno.Instancia.ExisteTurnoAbierto(Vista.IdAlmacen)) {
+            if (RepoCajaTurno.Instancia.ExisteTurnoAbierto(Vista.Almacen.Id)) {
                 CentroNotificaciones.MostrarNotificacion(
                     "Ya existe un turno abierto para este almacén.",
                     TipoNotificacionEnum.Advertencia);

@@ -90,23 +90,5 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
             // se dispara para que el presentador sepa que hay cambios pendientes,
             // si necesitas validar algo antes de habilitar "Confirmar cierre".
         }
-
-        //private void OnArqueoModificado(object? sender, EventArgs e) {
-        //    var arqueo = Vista.ObtenerArqueo();
-        //    var totalContado = arqueo.Sum(a => a.Subtotal);
-
-        //    Vista.ActualizarTotalArqueo(totalContado);
-        //    Vista.MontoEfectivoDeclarado = totalContado;
-
-        //    RecalcularDiferencias();
-        //}
-
-        //private void RecalcularDiferencias() {
-        //    if (_totalesCalculados == null) 
-        //        return;
-
-        //    Vista.DiferenciaEfectivo = Vista.MontoEfectivoDeclarado - _totalesCalculados.TotalEfectivo;
-        //    Vista.DiferenciaTransferencias = Vista.MontoTransferenciasDeclarado - _totalesCalculados.TotalTransferencias;
-        //}
     }
 }
