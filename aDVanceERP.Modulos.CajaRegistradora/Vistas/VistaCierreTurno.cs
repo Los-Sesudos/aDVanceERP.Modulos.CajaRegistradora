@@ -151,16 +151,24 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
 
         public IEnumerable<CajaArqueo> ObtenerArqueo() {
             var arqueo = new List<CajaArqueo>();
+            var repoMoneda = RepoMoneda.Instancia;
+            var repoTasaCambio = RepoTasaCambio.Instancia;
+            var idMonedaBase = repoMoneda.ObtenerMonedaBase().Id;
 
             foreach (var control in panelConteoDenominaciones.Controls) {
                 if (control is VistaTuplaConteoFisicoDenominacion tupla && tupla.Conteo > 0) {
-                    var moneda = RepoMoneda.Instancia.Buscar(FiltroBusquedaMoneda.Codigo, tupla.Tag?.ToString() ?? "").resultadosBusqueda.FirstOrDefault().entidadBase;
-                    
+                    var monedaOrigen = repoMoneda
+                        .Buscar(FiltroBusquedaMoneda.Codigo, tupla.Tag?.ToString() ?? "")
+                        .resultadosBusqueda
+                        .FirstOrDefault()
+                        .entidadBase;
+
                     arqueo.Add(new CajaArqueo {
                         IdTurno = _turno?.Id ?? 0,
-                        IdMoneda = moneda?.Id ?? 1,
                         Denominacion = tupla.ValorDenominacion,
-                        Cantidad = tupla.Conteo
+                        Cantidad = tupla.Conteo,
+                        IdMoneda = monedaOrigen?.Id ?? 1,
+                        TasaCambioAplicada = repoTasaCambio.ObtenerTasaVigente(monedaOrigen?.Id ?? idMonedaBase, idMonedaBase, _turno?.FechaApertura ?? DateTime.Today)
                     });
                 }
             }
@@ -368,8 +376,8 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
 
             foreach (var control in panelConciliacion.Controls) {
                 if (control is VistaTuplaConciliacionMoneda tupla) {
-                    TotalCalculado += repoTasaCambio.Convertir(tupla.MontoCalculado, tupla.MonedaCanal.moneda.Id, monedaBase.Id);
-                    TotalDeclarado += repoTasaCambio.Convertir(tupla.MontoDeclarado, tupla.MonedaCanal.moneda.Id, monedaBase.Id);
+                    TotalCalculado += repoTasaCambio.Convertir(tupla.MontoCalculado, tupla.MonedaCanal.moneda.Id, monedaBase.Id, FechaApertura);
+                    TotalDeclarado += repoTasaCambio.Convertir(tupla.MontoDeclarado, tupla.MonedaCanal.moneda.Id, monedaBase.Id, FechaApertura);
                 }
             }
 

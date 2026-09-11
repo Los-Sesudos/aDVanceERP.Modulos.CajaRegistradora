@@ -153,7 +153,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             var monedaBase = RepoMoneda.Instancia.ObtenerMonedaBase();
             var repoTasaCambio = RepoTasaCambio.Instancia;
             var totalesBase = totalesPorMoneda.FirstOrDefault(t => t.IdMoneda == monedaBase.Id) ?? new TotalesCierreCaja { IdMoneda = monedaBase.Id };
-            var totalGeneralBase = totalesPorMoneda.Sum(t => repoTasaCambio.Convertir(t.TotalEfectivo + t.TotalTransferencias, t.IdMoneda, monedaBase.Id));
+            var totalGeneralBase = totalesPorMoneda.Sum(t => t.TotalEfectivoBase + t.TotalTransferenciasBase);
 
             fieldSubtitulo.Text = turno.Codigo;
             fieldCodigo.Text = turno.Codigo;

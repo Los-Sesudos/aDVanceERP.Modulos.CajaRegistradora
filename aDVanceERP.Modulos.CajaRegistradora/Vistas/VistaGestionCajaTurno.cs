@@ -96,7 +96,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         public event EventHandler? AbrirTurno;
         public event EventHandler? CerrarTurno;
         public event EventHandler? RegistrarMovimiento;
-        public event EventHandler<DateTime> GenerarDocumentoResumenMovimientos;
+        public event EventHandler<DateTime> GenerarDocumentoResumenCaja;
 
         public void Inicializar() {
             // Eventos
@@ -120,8 +120,8 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             btnAbrirTurno.Click += delegate (object? sender, EventArgs e) {
                 AbrirTurno?.Invoke(sender, e);
             };
-            btnGenerarResumenMovimientos.Click += delegate (object? sender, EventArgs e) {
-                GenerarDocumentoResumenMovimientos?.Invoke(sender, fieldFechaResumenMovimientos.Value);
+            btnGenerarResumenCaja.Click += delegate (object? sender, EventArgs e) {
+                GenerarDocumentoResumenCaja?.Invoke(sender, fieldFechaResumenMovimientos.Value);
             };
             btnCerrarTurno.Click += delegate (object? sender, EventArgs e) {
                 CerrarTurno?.Invoke(sender, e);

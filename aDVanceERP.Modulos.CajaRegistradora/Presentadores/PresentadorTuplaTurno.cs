@@ -11,13 +11,13 @@ using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
     internal class PresentadorTuplaTurno : PresentadorVistaTupla<IVistaTuplaTurno, CajaTurno> {
         public PresentadorTuplaTurno(IVistaTuplaTurno vista, CajaTurno entidad) : base(vista, entidad) {
-            vista.GenerarHojaConteoTurno += OnGenerarHojaConteoTurno;
+            vista.GenerarResumenCajaTurno += OnGenerarResumenCajaTurno;
             vista.VerDetalleTurno += OnVerDetalleTurno;
             vista.AnularTurno += OnAnularTurno;
         }
 
-        private void OnGenerarHojaConteoTurno(object? sender, long e) {
-            var documento = new DocHojaConteoTurno(e, Vista.Codigo);
+        private void OnGenerarResumenCajaTurno(object? sender, long e) {
+            var documento = new DocResumenCaja(e);
 
             documento.GenerarDocumento(mostrar: true);
         }

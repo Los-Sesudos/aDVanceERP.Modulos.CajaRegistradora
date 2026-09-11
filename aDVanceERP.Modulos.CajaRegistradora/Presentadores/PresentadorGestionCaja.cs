@@ -18,7 +18,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
     internal class PresentadorGestionCaja : PresentadorVistaGestion<PresentadorTuplaTurno, IVistaGestionCaja, IVistaTuplaTurno, CajaTurno, RepoCajaTurno, FiltroBusquedaCajaTurno> {
         public PresentadorGestionCaja(IVistaGestionCaja vista) : base(vista) {
             vista.AbrirTurno += OnAbrirTurno;
-            vista.GenerarDocumentoResumenMovimientos += OnGenerarDocumentoResumenMovimientos;
+            vista.GenerarDocumentoResumenCaja += OnGenerarDocumentoResumenCaja;
             vista.CerrarTurno += OnCerrarTurno;
             vista.RegistrarMovimiento += OnRegistrarMovimiento;
             
@@ -59,8 +59,8 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
             });
         }
 
-        private void OnGenerarDocumentoResumenMovimientos(object? sender, DateTime fecha) {
-            var resumen = new DocCierreCaja(fecha);
+        private void OnGenerarDocumentoResumenCaja(object? sender, DateTime fecha) {
+            var resumen = new DocResumenCaja(fecha);
 
             resumen.GenerarDocumento(mostrar: true);
         }
@@ -80,13 +80,8 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
         }
 
         protected override PresentadorTuplaTurno ObtenerValoresTupla(CajaTurno entidad, List<IEntidadBaseDatos> entidadesExtra) {
-            var totalesPorMoneda = RepoCajaMovimiento.Instancia.ObtenerTotalesPorCanalYMoneda(entidad.Id);
-            var monedaBase = RepoMoneda.Instancia.ObtenerMonedaBase();
-            var repoTasaCambio = RepoTasaCambio.Instancia;
-            var totalesBase = totalesPorMoneda.FirstOrDefault(t => t.IdMoneda == monedaBase.Id) ?? new TotalesCierreCaja { IdMoneda = monedaBase.Id };
-            var totalGeneralBase = totalesPorMoneda.Sum(t => repoTasaCambio.Convertir(t.TotalEfectivo + t.TotalTransferencias, t.IdMoneda, monedaBase.Id));
             var presentadorTupla = new PresentadorTuplaTurno(new VistaTuplaTurno(), entidad);
-            
+
             presentadorTupla.Vista.Id = entidad.Id;
             presentadorTupla.Vista.Codigo = entidad.Codigo;
             presentadorTupla.Vista.NombreAlmacen = entidad.NombreAlmacen ?? "-";

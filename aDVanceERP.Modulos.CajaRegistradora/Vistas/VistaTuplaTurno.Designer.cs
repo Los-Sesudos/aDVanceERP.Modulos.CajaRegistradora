@@ -39,7 +39,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             layoutBase = new TableLayoutPanel();
             separador1 = new Guna2Separator();
             layoutVista = new TableLayoutPanel();
-            btnGenerarHojaConteoTurno = new Guna2Button();
+            btnGenerarResumenCajaTurno = new Guna2Button();
             btnAnularTurno = new Guna2Button();
             fieldEstado = new Guna2Button();
             fieldFechaApertura = new Label();
@@ -95,7 +95,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 37F));
             layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 37F));
             layoutVista.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 37F));
-            layoutVista.Controls.Add(btnGenerarHojaConteoTurno, 8, 0);
+            layoutVista.Controls.Add(btnGenerarResumenCajaTurno, 8, 0);
             layoutVista.Controls.Add(btnAnularTurno, 10, 0);
             layoutVista.Controls.Add(fieldEstado, 7, 0);
             layoutVista.Controls.Add(fieldFechaApertura, 3, 0);
@@ -117,27 +117,27 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             // 
             // btnGenerarHojaConteoTurno
             // 
-            btnGenerarHojaConteoTurno.Animated = true;
-            btnGenerarHojaConteoTurno.AutoRoundedCorners = true;
-            btnGenerarHojaConteoTurno.BorderColor = Color.Gainsboro;
-            btnGenerarHojaConteoTurno.BorderRadius = 14;
-            btnGenerarHojaConteoTurno.BorderThickness = 1;
-            btnGenerarHojaConteoTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage");
-            btnGenerarHojaConteoTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image");
-            btnGenerarHojaConteoTurno.CustomImages.ImageAlign = HorizontalAlignment.Center;
-            btnGenerarHojaConteoTurno.CustomizableEdges = customizableEdges9;
-            btnGenerarHojaConteoTurno.Dock = DockStyle.Fill;
-            btnGenerarHojaConteoTurno.FillColor = Color.White;
-            btnGenerarHojaConteoTurno.Font = new Font("Segoe UI", 9.75F);
-            btnGenerarHojaConteoTurno.ForeColor = Color.White;
-            btnGenerarHojaConteoTurno.HoverState.BorderColor = Color.PeachPuff;
-            btnGenerarHojaConteoTurno.HoverState.FillColor = Color.PeachPuff;
-            btnGenerarHojaConteoTurno.HoverState.ForeColor = Color.White;
-            btnGenerarHojaConteoTurno.Location = new Point(1133, 3);
-            btnGenerarHojaConteoTurno.Name = "btnGenerarHojaConteoTurno";
-            btnGenerarHojaConteoTurno.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnGenerarHojaConteoTurno.Size = new Size(31, 30);
-            btnGenerarHojaConteoTurno.TabIndex = 42;
+            btnGenerarResumenCajaTurno.Animated = true;
+            btnGenerarResumenCajaTurno.AutoRoundedCorners = true;
+            btnGenerarResumenCajaTurno.BorderColor = Color.Gainsboro;
+            btnGenerarResumenCajaTurno.BorderRadius = 14;
+            btnGenerarResumenCajaTurno.BorderThickness = 1;
+            btnGenerarResumenCajaTurno.CustomImages.HoveredImage = (Image) resources.GetObject("resource.HoveredImage");
+            btnGenerarResumenCajaTurno.CustomImages.Image = (Image) resources.GetObject("resource.Image");
+            btnGenerarResumenCajaTurno.CustomImages.ImageAlign = HorizontalAlignment.Center;
+            btnGenerarResumenCajaTurno.CustomizableEdges = customizableEdges9;
+            btnGenerarResumenCajaTurno.Dock = DockStyle.Fill;
+            btnGenerarResumenCajaTurno.FillColor = Color.White;
+            btnGenerarResumenCajaTurno.Font = new Font("Segoe UI", 9.75F);
+            btnGenerarResumenCajaTurno.ForeColor = Color.White;
+            btnGenerarResumenCajaTurno.HoverState.BorderColor = Color.PeachPuff;
+            btnGenerarResumenCajaTurno.HoverState.FillColor = Color.PeachPuff;
+            btnGenerarResumenCajaTurno.HoverState.ForeColor = Color.White;
+            btnGenerarResumenCajaTurno.Location = new Point(1133, 3);
+            btnGenerarResumenCajaTurno.Name = "btnGenerarHojaConteoTurno";
+            btnGenerarResumenCajaTurno.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btnGenerarResumenCajaTurno.Size = new Size(31, 30);
+            btnGenerarResumenCajaTurno.TabIndex = 42;
             // 
             // btnAnularTurno
             // 
@@ -350,6 +350,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         private Guna2Button fieldEstado;
         private Guna2Button btnAnularTurno;
         private Guna2Separator separador1;
-        private Guna2Button btnGenerarHojaConteoTurno;
+        private Guna2Button btnGenerarResumenCajaTurno;
     }
 }

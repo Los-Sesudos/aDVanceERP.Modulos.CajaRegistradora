@@ -131,7 +131,6 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
                 fieldEstado.DisabledState.ForeColor = colorFuente;
                 fieldEstado.Text = $"{value.ObtenerNombreDescripcion().Nombre}";
                 
-                btnGenerarHojaConteoTurno.Enabled = value != EstadoCajaTurnoEnum.Anulado && value != EstadoCajaTurnoEnum.Cerrado;
                 btnAnularTurno.Enabled = value == EstadoCajaTurnoEnum.Abierto;
                 btnVerDetalleTurno.Enabled = value != EstadoCajaTurnoEnum.Anulado;
             }
@@ -139,21 +138,14 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
 
         public event EventHandler? EditarDatosTupla;
         public event EventHandler? EliminarDatosTupla;
-        public event EventHandler<long>? GenerarHojaConteoTurno;
+        public event EventHandler<long>? GenerarResumenCajaTurno;
         public event EventHandler<long>? VerDetalleTurno;
         public event EventHandler<long>? AnularTurno;        
 
         public void Inicializar() {
             // Eventos
-            btnGenerarHojaConteoTurno.Click += delegate {
-                var almacen = RepoAlmacen.Instancia.Buscar(FiltroBusquedaAlmacen.Nombre, NombreAlmacen).resultadosBusqueda.FirstOrDefault().entidadBase;
-
-                if (almacen == null) {
-                    MessageBox.Show($"No se encontró el almacén '{NombreAlmacen}' en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                GenerarHojaConteoTurno?.Invoke(this, almacen.Id);
+            btnGenerarResumenCajaTurno.Click += delegate {
+                GenerarResumenCajaTurno?.Invoke(this, Id);
             };
             btnVerDetalleTurno.Click += delegate {
                 VerDetalleTurno?.Invoke(this, Id);
