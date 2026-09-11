@@ -2,7 +2,6 @@
 using aDVanceERP.Core.Infraestructura.Extensiones.BD;
 using aDVanceERP.Core.Infraestructura.Globales;
 using aDVanceERP.Core.Modelos.Modulos.Caja;
-using aDVanceERP.Core.Modelos.Modulos.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
 using aDVanceERP.Core.Repositorios.Modulos.Monedas;
 
@@ -60,7 +59,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Documentos {
         }
 
         private string SubtituloBanner => $"{_fechaDesde:dd/MM/yyyy} — {_fechaHasta:dd/MM/yyyy}";
-        private string TituloDocumento => "BALANCE DE CAJA DEL PERÍODO";
+        private string TituloDocumento => "BALANCE DE CAJA";
         private string TextoPiePagina => $"Balance de caja: {_fechaDesde:dd/MM/yyyy} — {_fechaHasta:dd/MM/yyyy}";
 
         #endregion
@@ -150,7 +149,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Documentos {
                     ["Diferencia acumulada"] = $"{simboloBase} {diferenciaAcumuladaBase:N2}",
                 });
 
-                yPos += 100;
+                yPos += 110;
 
                 // ===== Tabla: movimientos netos por tipo y moneda =====
                 gfx.DrawString("MOVIMIENTOS NETOS DEL PERÍODO, POR TIPO Y MONEDA", FontEncabezado, new XSolidBrush(ColorPrimario), new XPoint(MargenIzquierdo, yPos));

@@ -3,9 +3,11 @@ using aDVanceERP.Core.Eventos.Modulos.Caja;
 using aDVanceERP.Core.Infraestructura.Globales;
 using aDVanceERP.Core.Modelos.Comun;
 using aDVanceERP.Core.Modelos.Modulos.Caja;
+using aDVanceERP.Core.Modelos.Modulos.Inventario;
 using aDVanceERP.Core.Modelos.Modulos.Venta;
 using aDVanceERP.Core.Presentadores.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
+using aDVanceERP.Core.Repositorios.Modulos.Estadisticas;
 using aDVanceERP.Core.Repositorios.Modulos.Inventario;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 
@@ -34,7 +36,13 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
 
         protected override CajaTurno? ObtenerEntidadDesdeVista() {
             var idUsuario = ContextoSeguridad.UsuarioAutenticado?.Id ?? 0;
-            var codigo = RepoCajaTurno.Instancia.GenerarCodigoTurno(Vista.Almacen?.Id ?? 0);
+            var correlativoTurno = RepoCajaTurno.Instancia.ObtenerCorrelativoTurno(Vista.Almacen?.Id ?? 0);
+            var codigo = string.Empty;
+
+            do {
+                correlativoTurno++;
+                codigo = $"TRN-{Vista.FechaApertura:yyyyMMdd}-{Vista.Almacen!.Id:D2}{correlativoTurno:D2}"; ;
+            } while (_repositorio.Buscar(FiltroBusquedaCajaTurno.Codigo, codigo).cantidad > 0);
 
             var turno = new CajaTurno {
                 Codigo = codigo,

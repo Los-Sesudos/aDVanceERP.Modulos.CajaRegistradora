@@ -1,5 +1,4 @@
-﻿using aDVanceERP.Core.Eventos;
-using aDVanceERP.Core.Eventos.Comun;
+﻿using aDVanceERP.Core.Eventos.Comun;
 using aDVanceERP.Core.Eventos.Modulos.Caja;
 using aDVanceERP.Core.Infraestructura.Extensiones.Comun;
 using aDVanceERP.Core.Infraestructura.Globales;
@@ -9,7 +8,6 @@ using aDVanceERP.Core.Modelos.Modulos.Caja;
 using aDVanceERP.Core.Presentadores.Comun;
 using aDVanceERP.Core.Repositorios.Modulos.Caja;
 using aDVanceERP.Core.Repositorios.Modulos.Inventario;
-using aDVanceERP.Core.Repositorios.Modulos.Monedas;
 using aDVanceERP.Modulos.CajaRegistradora.Documentos;
 using aDVanceERP.Modulos.CajaRegistradora.Interfaces;
 using aDVanceERP.Modulos.CajaRegistradora.Vistas;
@@ -18,7 +16,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
     internal class PresentadorGestionCaja : PresentadorVistaGestion<PresentadorTuplaTurno, IVistaGestionCaja, IVistaTuplaTurno, CajaTurno, RepoCajaTurno, FiltroBusquedaCajaTurno> {
         public PresentadorGestionCaja(IVistaGestionCaja vista) : base(vista) {
             vista.AbrirTurno += OnAbrirTurno;
-            vista.GenerarDocumentoResumenCaja += OnGenerarDocumentoResumenCaja;
+            vista.GenerarDocumentoBalanceCaja += OnGenerarDocumentoBalanceCaja;
             vista.CerrarTurno += OnCerrarTurno;
             vista.RegistrarMovimiento += OnRegistrarMovimiento;
             
@@ -59,10 +57,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Presentadores {
             });
         }
 
-        private void OnGenerarDocumentoResumenCaja(object? sender, DateTime fecha) {
-            var resumen = new DocResumenCaja(fecha);
+        private void OnGenerarDocumentoBalanceCaja(object? sender, (DateTime desde, DateTime hasta) e) {
+            var documento = new DocBalanceCajaPeriodo(e.desde, e.hasta);
 
-            resumen.GenerarDocumento(mostrar: true);
+            documento.GenerarDocumento(mostrar: true);
         }
 
         private void OnCerrarTurno(object? sender, EventArgs e) {

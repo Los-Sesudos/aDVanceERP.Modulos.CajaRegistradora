@@ -105,10 +105,10 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
                     : "-";
                 fieldDiferenciaEfectivo.ForeColor = fieldDiferenciaEfectivo.Text.Equals("-")
                     ? Color.Black
-                    : value > 0
-                        ? Color.FromArgb(198, 40, 40) // Rojo para diferencia positiva (falta dinero)
-                        : value < 0
-                            ? Color.FromArgb(255, 193, 7) // Ámbar para diferencia negativa (sobrante de dinero)
+                    : value < 0
+                        ? Color.FromArgb(198, 40, 40) // Rojo para diferencia negativa (falta dinero)
+                        : value > 0
+                            ? Color.FromArgb(255, 193, 7) // Ámbar para diferencia positiva (sobrante de dinero)
                             : Color.FromArgb(46, 125, 50); // Verde para sin diferencia (balanceado)
             }
         }

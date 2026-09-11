@@ -96,11 +96,11 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
         public event EventHandler? AbrirTurno;
         public event EventHandler? CerrarTurno;
         public event EventHandler? RegistrarMovimiento;
+        public event EventHandler<(DateTime desde, DateTime hasta)> GenerarDocumentoBalanceCaja;
         public event EventHandler<DateTime> GenerarDocumentoResumenCaja;
 
         public void Inicializar() {
             // Eventos
-            fieldFechaResumenMovimientos.Value = DateTime.Today;
             fieldFiltroAlmacen.SelectedIndexChanged += OnCambioIndiceFiltroAlmacen;
             fieldFiltroBusquedaFechaDesde.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             fieldFiltroBusquedaFechaDesde.ValueChanged += OnCambioValorFechaDesde;
@@ -120,8 +120,8 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Vistas {
             btnAbrirTurno.Click += delegate (object? sender, EventArgs e) {
                 AbrirTurno?.Invoke(sender, e);
             };
-            btnGenerarResumenCaja.Click += delegate (object? sender, EventArgs e) {
-                GenerarDocumentoResumenCaja?.Invoke(sender, fieldFechaResumenMovimientos.Value);
+            btnGenerarBalanceCaja.Click += delegate (object? sender, EventArgs e) {
+                GenerarDocumentoBalanceCaja?.Invoke(sender, (fieldFiltroBusquedaFechaDesde.Value, fieldFiltroBusquedaFechaHasta.Value));
             };
             btnCerrarTurno.Click += delegate (object? sender, EventArgs e) {
                 CerrarTurno?.Invoke(sender, e);

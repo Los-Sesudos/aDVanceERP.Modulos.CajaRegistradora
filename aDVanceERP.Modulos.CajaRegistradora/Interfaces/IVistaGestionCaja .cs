@@ -11,7 +11,7 @@ namespace aDVanceERP.Modulos.CajaRegistradora.Interfaces {
         event EventHandler? AbrirTurno;
         event EventHandler? CerrarTurno;
         event EventHandler? RegistrarMovimiento;
-        event EventHandler<DateTime> GenerarDocumentoResumenCaja;
+        event EventHandler<(DateTime desde, DateTime hasta)> GenerarDocumentoBalanceCaja;
 
         /// <summary>Carga el combo de almacenes disponibles.</summary>
         void CargarFiltroAlmacenes(Almacen[] almacenes);
